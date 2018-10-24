@@ -1,5 +1,6 @@
-package Controller;
+package View.ViewController;
 
+import Controller.MainController;
 import Model.Administrador;
 import Model.Eleitor;
 import Model.Usuario;

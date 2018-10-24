@@ -1,6 +1,6 @@
 package View;
 
-import Controller.TelaLoginController;
+import View.ViewController.TelaLoginController;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;

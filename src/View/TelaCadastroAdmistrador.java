@@ -1,6 +1,6 @@
 package View;
 
-import Controller.TelaCadastroAdministradorController;
+import View.ViewController.TelaCadastroAdministradorController;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;

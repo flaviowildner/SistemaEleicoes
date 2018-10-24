@@ -1,5 +1,6 @@
-package Controller;
+package View.ViewController;
 
+import Controller.MainController;
 import View.TelaInicialAdministrador;
 
 public class TelaInicialAdministradorController {
