@@ -1,6 +1,7 @@
 package View;
 
-import View.ViewController.TelaInicialAdministradorController;
+import Controller.Sistema;
+import Model.Usuario;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -9,20 +10,22 @@ import java.awt.event.MouseEvent;
 public class TelaInicialAdministrador extends JFrame{
     private JButton cadastrarEleitorButton;
     private JButton cadastrarAdministradorButton;
-    private JPanel root;
+    private JPanel rootTelaInicialAdmin;
     private JButton deslogarButton;
 
-    private TelaInicialAdministradorController controller;
+    private Sistema sistema;
+    private Usuario usuario;
 
-    public TelaInicialAdministrador(TelaInicialAdministradorController controller) {
-        this.controller = controller;
+    public TelaInicialAdministrador(Sistema sistema, Usuario usuario) {
+        this.sistema = sistema;
+        this.usuario = usuario;
         initComponents();
 
         cadastrarAdministradorButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                controller.solicitaCadastroAdministrador();
+                solicitarCadastroAdministrador();
             }
         });
 
@@ -30,7 +33,7 @@ public class TelaInicialAdministrador extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                controller.deslogar();
+                deslogar();
             }
         });
 
@@ -38,10 +41,20 @@ public class TelaInicialAdministrador extends JFrame{
 
     private void initComponents(){
         setTitle("Administrador");
-        add(root);
         setSize(800, 400);
+        add(rootTelaInicialAdmin);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    private void solicitarCadastroAdministrador(){
+        new TelaCadastroAdmistrador(sistema, usuario);
+        dispose();
+    }
+
+    private void deslogar(){
+        new TelaLogin(sistema);
+        dispose();
     }
 }

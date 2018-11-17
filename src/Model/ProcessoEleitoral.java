@@ -1,12 +1,12 @@
 package Model;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProcessoEleitoral {
-    private Date dataInicial;
-    private Date dataTermino;
+    private List<Eleicao> eleicaoList;
 
-    public ProcessoEleitoral(Date dataInicial, Date dataTermino){
-
+    public ProcessoEleitoral(){
+        eleicaoList = new ArrayList<>();
     }
 }

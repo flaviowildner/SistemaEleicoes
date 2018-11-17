@@ -1,29 +1,23 @@
 package Model;
 
 public abstract class Usuario {
-    private String id;
-    private String nome;
+    private String login;
     private String senha;
 
-    public Usuario(String id, String senha, String nome){
-        this.id = id;
+    public Usuario(String login, String senha){
+        this.login = login;
         this.senha = senha;
-        this.nome = nome;
     }
 
-    public Usuario autenticar(String senha){
+    public Boolean autenticar(String senha){
         if(this.senha.equals(senha)){
-            return this;
+            return true;
         }else{
-            return null;
+            return false;
         }
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
+    public String getLogin() {
+        return login;
     }
 }

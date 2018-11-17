@@ -1,15 +1,13 @@
 package Model;
 
-public class Voto {
-    private int tipoVoto;
-    private String hash;
-    private ZonaEleitoral zonaEleitoral;
-    private Eleicao eleicao;
-    private Candidato candidato;
+public abstract class Voto {
+    private Eleitor eleitor;
 
-    public Voto(Eleicao eleicao, Candidato candidato, ZonaEleitoral zonaEleitoral){
-        this.eleicao = eleicao;
-        this.candidato = candidato;
-        this.zonaEleitoral = zonaEleitoral;
+    public Voto(Eleitor eleitor){
+        this.eleitor = eleitor;
+    }
+
+    public Eleitor obterEleitor(){
+        return this.eleitor;
     }
 }

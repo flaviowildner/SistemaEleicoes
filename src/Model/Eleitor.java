@@ -1,15 +1,14 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Eleitor extends Usuario {
+    private String cpf;
+    private String nome;
+    private Secao secao;
 
-public class Eleitor extends Usuario{
-    private List<ZonaEleitoral> zonaEleitoral;
-    private List<Voto> votos;
-
-    public Eleitor(String id, String senha, String nome, List<ZonaEleitoral> zonaEleitoral) {
-        super(id, senha, nome);
-        this.zonaEleitoral = new ArrayList<>();
-        this.votos = new ArrayList<>();
+    public Eleitor(String login, String senha, String cpf, String nome, Secao secao){
+        super(login, senha);
+        this.cpf = cpf;
+        this.nome = nome;
+        this.secao = secao;
     }
 }

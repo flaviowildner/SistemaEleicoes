@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="438.0">Controller.Sistema</node>
+    <node x="0.0" y="112.0">Model.Estado</node>
+    <node x="182.0" y="0.0">Model.UF</node>
+    <node x="496.0" y="764.0">Model.Cargo</node>
+    <node x="347.0" y="438.0">Model.ZonaEleitoral</node>
+    <node x="92.5" y="219.0">Model.Usuario</node>
+    <node x="0.0" y="331.0">Model.Administrador</node>
+    <node x="144.0" y="298.0">Model.Eleitor</node>
+    <node x="280.0" y="623.0">Model.Eleicao</node>
+    <node x="0.0" y="764.0">Model.Secao</node>
+    <node x="252.0" y="101.0">Model.Municipio</node>
+    <node x="323.0" y="320.0">Model.VotoInvalido</node>
+    <node x="478.75" y="219.0">Model.Voto</node>
+    <node x="594.0" y="331.0">Model.VotoValido</node>
+    <node x="253.0" y="764.0">Model.ProcessoEleitoral</node>
+    <node x="638.0" y="764.0">Model.TipoVotoInvalido</node>
+    <node x="0.0" y="623.0">Model.Candidatura</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Model.VotoInvalido" target="Model.Voto">
+      <point x="0.0" y="-25.5" />
+      <point x="448.5" y="295.0" />
+      <point x="513.25" y="295.0" />
+      <point x="-34.5" y="25.5" />
+    </edge>
+    <edge source="Model.Estado" target="Model.UF">
+      <point x="0.0" y="-25.5" />
+      <point x="116.0" y="76.0" />
+      <point x="215.5" y="76.0" />
+      <point x="-33.5" y="25.5" />
+    </edge>
+    <edge source="Model.Administrador" target="Model.Usuario">
+      <point x="0.0" y="-14.5" />
+      <point x="62.0" y="273.0" />
+      <point x="114.5" y="273.0" />
+      <point x="-22.0" y="14.5" />
+    </edge>
+    <edge source="Model.Eleitor" target="Model.Usuario">
+      <point x="0.0" y="-47.5" />
+      <point x="211.0" y="273.0" />
+      <point x="158.5" y="273.0" />
+      <point x="22.0" y="14.5" />
+    </edge>
+    <edge source="Model.Municipio" target="Model.UF">
+      <point x="0.0" y="-36.5" />
+      <point x="382.0" y="76.0" />
+      <point x="282.5" y="76.0" />
+      <point x="33.5" y="25.5" />
+    </edge>
+    <edge source="Model.VotoValido" target="Model.Voto">
+      <point x="0.0" y="-14.5" />
+      <point x="647.0" y="295.0" />
+      <point x="582.25" y="295.0" />
+      <point x="34.5" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5685378590078329" x="349.0" y="746.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
