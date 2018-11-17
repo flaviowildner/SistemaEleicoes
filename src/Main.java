@@ -1,7 +1,7 @@
-import Controller.MainController;
+import Controller.Sistema;
 
 public class Main {
     public static void main(String[] args) {
-        MainController mainController = new MainController();
+        Sistema sistema = new Sistema();
     }
 }
