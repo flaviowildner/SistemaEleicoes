@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7265b6a1-12de-484b-9747-d11a7b489c62" name="Default Changelist" comment="Correções e testes">
-      <change afterPath="$PROJECT_DIR$/src/View/TelaCadastroEleitor.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/TelaCadastroEleitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/View.java" afterDir="false" />
+    <list default="true" id="7265b6a1-12de-484b-9747-d11a7b489c62" name="Default Changelist" comment="Correção Classe View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Sistema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Candidatura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Candidatura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Eleicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Eleicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Eleitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Eleitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Municipio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Municipio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ProcessoEleitoral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ProcessoEleitoral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Secao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Secao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaInicialAdministrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaInicialAdministrador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaLogin.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaLogin.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,20 +30,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="form" value="25" />
+          <entry key="form" value="28" />
           <entry key="html" value="1" />
           <entry key="iml" value="4" />
-          <entry key="java" value="171" />
+          <entry key="java" value="176" />
           <entry key="uml" value="10" />
           <entry key="xml" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="GUI_DESIGNER_FORM" value="25" />
+          <entry key="GUI_DESIGNER_FORM" value="28" />
           <entry key="HTML" value="1" />
           <entry key="IDEA_MODULE" value="4" />
-          <entry key="JAVA" value="171" />
+          <entry key="JAVA" value="176" />
           <entry key="UML" value="10" />
           <entry key="XML" value="16" />
         </counts>
@@ -66,14 +51,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="5" />
-          <entry key="java" value="11349" />
-          <entry key="txt" value="160" />
+          <entry key="java" value="11431" />
+          <entry key="txt" value="248" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11349" />
-          <entry key="PLAIN_TEXT" value="165" />
+          <entry key="JAVA" value="11431" />
+          <entry key="PLAIN_TEXT" value="253" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.mvc.usages" />
@@ -100,8 +85,63 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Sistema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="306">
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/TelaLogin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1396#1397#0" expanded="true" />
+                <element signature="e#1441#1442#0" expanded="true" />
+                <element signature="e#1477#1478#0" expanded="true" />
+                <element signature="e#1507#1508#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroEleitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,20 +149,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/TelaInicialAdministrador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="459">
+              <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#920#1095#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
+                <element signature="e#1333#1334#0" expanded="true" />
+                <element signature="e#1374#1375#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TelaInicialAdministrador.form">
-          <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
     </leaf>
@@ -177,13 +212,13 @@
         <option value="$PROJECT_DIR$/src/Model/Eleicao.java" />
         <option value="$PROJECT_DIR$/src/View/TelaLogin.form" />
         <option value="$PROJECT_DIR$/src/View/CriarProcessoEleitoral.form" />
-        <option value="$PROJECT_DIR$/src/View/View.java" />
-        <option value="$PROJECT_DIR$/src/View/TelaLogin.java" />
         <option value="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.form" />
-        <option value="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java" />
         <option value="$PROJECT_DIR$/src/View/CadastrarEleitor.form" />
         <option value="$PROJECT_DIR$/src/View/CadastrarEleitor.java" />
+        <option value="$PROJECT_DIR$/src/View/View.java" />
         <option value="$PROJECT_DIR$/src/View/TelaInicialAdministrador.java" />
+        <option value="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java" />
+        <option value="$PROJECT_DIR$/src/View/TelaLogin.java" />
         <option value="$PROJECT_DIR$/src/Controller/Sistema.java" />
       </list>
     </option>
@@ -248,6 +283,13 @@
               <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="TelaCadastroAdmistrador" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="SistemaEleicoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
               <item name="TelaCadastroEleitor" type="e9f4de52:FormNode" />
             </path>
             <path>
@@ -275,7 +317,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542740677371" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542749239116" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/uml" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -338,7 +380,7 @@
       <workItem from="1542462366133" duration="12521000" />
       <workItem from="1542494097566" duration="662000" />
       <workItem from="1542576323809" duration="3644000" />
-      <workItem from="1542642217287" duration="13788000" />
+      <workItem from="1542642217287" duration="15482000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganização de pacotes">
       <created>1540347899104</created>
@@ -354,17 +396,31 @@
       <option name="project" value="LOCAL" />
       <updated>1540348934834</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cadastro Eleitor e outras correções">
+      <created>1542740719532</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542740719532</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Correção da Classe View e instanciação das telas">
+      <created>1542749185264</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542749185264</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72908000" />
+    <option name="totallyTimeSpent" value="74602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20895523" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20895523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -373,8 +429,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49840087" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.2483731" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928367" visible="true" weight="0.2483731" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -435,7 +491,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Reorganização de pacotes" />
     <MESSAGE value="Reorganização de pacotes e adição da pasta .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganização de pacotes e adição da pasta .idea" />
+    <MESSAGE value="Cadastro Eleitor e outras correções" />
+    <MESSAGE value="Correção da Classe View e instanciação das telas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção da Classe View e instanciação das telas" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -716,9 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaLogin.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -733,45 +788,31 @@
     <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroEleitor.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroEleitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#617#775#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#1031#1206#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java">
+    <entry file="file://$PROJECT_DIR$/src/View/TelaInicialAdministrador.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaLogin.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaInicialAdministrador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="459">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#621#924#0" expanded="true" />
-            <element signature="e#923#924#0" expanded="true" />
-            <element signature="e#964#1172#0" expanded="true" />
-            <element signature="e#1171#1172#0" expanded="true" />
-            <element signature="e#1077#1078#0" expanded="true" />
-            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/View.java">
+    <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroEleitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -780,33 +821,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/TelaLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        <state relative-caret-position="492">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+            <element signature="e#1441#1442#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
+            <element signature="e#1507#1508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaInicialAdministrador.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaInicialAdministrador.java">
+    <entry file="file://$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="612">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#920#1095#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Sistema.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="306">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

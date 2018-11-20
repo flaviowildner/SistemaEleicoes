@@ -22,6 +22,7 @@ public class Sistema {
         //Administrador default
         criarAdministrador("ff", "ff");
         TelaLogin telaLogin = new TelaLogin(this);
+        telaLogin.setVisible(true);
 
 /*
         criarPais("Brasil");
