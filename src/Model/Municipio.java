@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Municipio extends UF {
@@ -8,6 +9,7 @@ public class Municipio extends UF {
 
     public Municipio(String nome, Estado estado){
         super(nome);
+        this.zonaEleitoralList = new ArrayList<>();
         this.estado = estado;
     }
 

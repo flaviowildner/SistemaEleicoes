@@ -9,7 +9,9 @@ public class Candidatura {
     private List<VotoValido> votosValidos;
     private Eleitor eleitor;
 
-    public Candidatura(Eleitor eleitor){
+    public Candidatura(String nomeFantasia, int numero, Eleitor eleitor){
+        this.nomeFantasia = nomeFantasia;
+        this.numero = numero;
         this.eleitor = eleitor;
         this.votosValidos = new ArrayList<>();
     }

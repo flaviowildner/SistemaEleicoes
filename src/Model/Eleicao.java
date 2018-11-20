@@ -42,17 +42,29 @@ public class Eleicao {
         return contador;
     }
 
-    public void adicionarCandidatura(Eleitor eleitor){
-        Candidatura candidatura = new Candidatura(eleitor);
+    public void adicionarCandidatura(String nomeFantasia, int numero, Eleitor eleitor){
+        Candidatura candidatura = new Candidatura(nomeFantasia, numero, eleitor);
         candidaturaList.add(candidatura);
     }
 
     public void registrarVoto(Eleitor eleitor, Candidatura candidatura){
+        if(this.eleicaoEmAndamento == false){
+            return;
+        }
+        if(eleitorJaVotou(eleitor)){
+            return;
+        }
         VotoValido voto = new VotoValido(eleitor);
         candidatura.adicionarVoto(voto);
     }
 
     public void registrarVotoInvalido(Eleitor eleitor, TipoVotoInvalido tipoVoto){
+        if(this.eleicaoEmAndamento == false){
+            return;
+        }
+        if(eleitorJaVotou(eleitor)){
+            return;
+        }
         VotoInvalido voto = new VotoInvalido(eleitor, tipoVoto);
         votoInvalidoList.add(voto);
     }
@@ -60,13 +72,13 @@ public class Eleicao {
     public boolean eleitorJaVotou(Eleitor eleitor){
         for(Candidatura candidatura : candidaturaList){
             for(VotoValido votoValido : candidatura.obterVotosValidos()){
-                if(votoValido.obterEleitor() == eleitor){
+                if(votoValido.obterEleitor().equals(eleitor)){
                     return true;
                 }
             }
         }
         for(VotoInvalido voto : votoInvalidoList){
-            if(voto.obterEleitor() == eleitor){
+            if(voto.obterEleitor().equals(eleitor)){
                 return true;
             }
         }
@@ -76,6 +88,7 @@ public class Eleicao {
     public void iniciarEleição(){
         this.eleicaoEmAndamento = true;
     }
+
     public void encerrarEleicao(){
         this.eleicaoEmAndamento = false;
     }
@@ -92,9 +105,10 @@ public class Eleicao {
         votoInvalidoList.clear();
     }
 
-    public Candidatura obterVencedores(){
+    //Implementar caso de empate
+    public Candidatura obterVencedor(){
         Candidatura vencedor = candidaturaList.get(0);
-        for(Candidatura candidatura : candidaturaList.subList(1, candidaturaList.size() - 1)){
+        for(Candidatura candidatura : candidaturaList.subList(1, candidaturaList.size())){
             if(candidatura.numeroVotos() > vencedor.numeroVotos()){
                 vencedor = candidatura;
             }

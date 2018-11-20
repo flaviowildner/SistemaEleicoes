@@ -11,8 +11,8 @@ public class Pais extends UF {
         estadoList = new ArrayList<>();
     }
 
-    public void adicionarEstado(String nome){
-        Estado estado = new Estado(nome);
+    public void criarEstado(String nome){
+        Estado estado = new Estado(nome, this);
         estadoList.add(estado);
     }
 

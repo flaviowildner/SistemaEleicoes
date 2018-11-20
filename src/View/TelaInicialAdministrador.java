@@ -29,6 +29,14 @@ public class TelaInicialAdministrador extends JFrame{
             }
         });
 
+        cadastrarEleitorButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                solicitarCadastroEleitor();
+            }
+        });
+
         deslogarButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -36,7 +44,6 @@ public class TelaInicialAdministrador extends JFrame{
                 deslogar();
             }
         });
-
     }
 
     private void initComponents(){
@@ -46,6 +53,11 @@ public class TelaInicialAdministrador extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    private void solicitarCadastroEleitor(){
+        new TelaCadastroEleitor(sistema, usuario);
+        dispose();
     }
 
     private void solicitarCadastroAdministrador(){

@@ -11,4 +11,12 @@ public class Eleitor extends Usuario {
         this.nome = nome;
         this.secao = secao;
     }
+
+    public Secao obterSecao(){
+        return this.secao;
+    }
+
+    public void alterarSecao(Secao secao){
+        this.secao = secao;
+    }
 }

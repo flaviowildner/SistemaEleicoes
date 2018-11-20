@@ -7,28 +7,27 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TelaCadastroAdmistrador extends View{
+public class TelaCadastroEleitor extends View{
     private JTextField loginField;
-    private JPanel rootTelaCadastroAdmin;
     private JPasswordField passwordField;
+    private JTextField cpfField;
+    private JButton cadastrarEleitorButton;
+    private JPanel rootPanel;
     private JTextField nomeField;
-    private JButton cadastrarButton;
     private JButton voltar;
 
-
-    public TelaCadastroAdmistrador(Sistema sistema, Usuario usuario){
-        super(sistema, usuario, "Cadastro Administrador");
+    public TelaCadastroEleitor(Sistema sistema, Usuario usuario){
+        super(sistema, usuario, "Cadastro Eleitor");
         initComponents();
 
-        cadastrarButton.addMouseListener(new MouseAdapter() {
+        cadastrarEleitorButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            super.mouseClicked(e);
-            sistema.criarAdministrador(loginField.getText(), new String(passwordField.getPassword()));
-            voltarTelaInicialAdministrador();
+                super.mouseClicked(e);
+                sistema.criarEleitor(loginField.getText(), new String(passwordField.getPassword()), cpfField.getText(), nomeField.getText(), null);
+                voltarTelaInicialAdministrador();
             }
         });
-
         voltar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -44,6 +43,6 @@ public class TelaCadastroAdmistrador extends View{
     }
 
     private void initComponents(){
-        add(rootTelaCadastroAdmin);
+        add(rootPanel);
     }
 }

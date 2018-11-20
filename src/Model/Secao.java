@@ -12,4 +12,8 @@ public class Secao {
     public ZonaEleitoral obterZonaEleitoral(){
         return this.zonaEleitoral;
     }
+
+    public int obterNumero(){
+        return this.numero;
+    }
 }

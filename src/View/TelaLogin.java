@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TelaLogin extends JFrame {
+public class TelaLogin extends View {
     private JPanel rootLogin;
     private JButton loginButton;
     private JTextField loginField;
@@ -19,10 +19,8 @@ public class TelaLogin extends JFrame {
     private JButton registerButton;
     private JLabel loginMessage;
 
-    private Sistema sistema;
-
     public TelaLogin(Sistema sistema){
-        this.sistema = sistema;
+        super(sistema, null, "Login");
         initComponents();
 
         loginButton.addMouseListener(new MouseAdapter() {
