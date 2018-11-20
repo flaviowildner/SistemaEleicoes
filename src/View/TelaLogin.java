@@ -47,12 +47,6 @@ public class TelaLogin extends View {
     }
 
     private void initComponents(){
-        setTitle("Login");
-        setSize(800, 400);
         add(rootLogin);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
     }
-
 }

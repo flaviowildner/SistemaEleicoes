@@ -7,18 +7,14 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TelaInicialAdministrador extends JFrame{
+public class TelaInicialAdministrador extends View{
     private JButton cadastrarEleitorButton;
     private JButton cadastrarAdministradorButton;
     private JPanel rootTelaInicialAdmin;
     private JButton deslogarButton;
 
-    private Sistema sistema;
-    private Usuario usuario;
-
     public TelaInicialAdministrador(Sistema sistema, Usuario usuario) {
-        this.sistema = sistema;
-        this.usuario = usuario;
+        super(sistema, usuario, "Tela Inicial Administrador");
         initComponents();
 
         cadastrarAdministradorButton.addMouseListener(new MouseAdapter() {
@@ -47,12 +43,7 @@ public class TelaInicialAdministrador extends JFrame{
     }
 
     private void initComponents(){
-        setTitle("Administrador");
-        setSize(800, 400);
         add(rootTelaInicialAdmin);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
     }
 
     private void solicitarCadastroEleitor(){

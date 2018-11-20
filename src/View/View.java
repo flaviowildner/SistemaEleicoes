@@ -16,8 +16,8 @@ public class View extends JFrame {
     }
 
     public void configView(String title){
-        setTitle("Cadastro Administrador");
-        setSize(800, 400);
+        setTitle(title);
+        setSize(1000, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

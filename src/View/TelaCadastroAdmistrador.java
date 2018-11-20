@@ -15,7 +15,6 @@ public class TelaCadastroAdmistrador extends View{
     private JButton cadastrarButton;
     private JButton voltar;
 
-
     public TelaCadastroAdmistrador(Sistema sistema, Usuario usuario){
         super(sistema, usuario, "Cadastro Administrador");
         initComponents();
