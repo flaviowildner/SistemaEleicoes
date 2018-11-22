@@ -23,7 +23,6 @@ public class TelaLogin extends View {
     public TelaLogin(Sistema sistema){
         super(sistema, null, "Login");
         initComponents();
-        System.out.println(rootLogin.getLayout());
 
         loginButton.addMouseListener(new MouseAdapter() {
             @Override
