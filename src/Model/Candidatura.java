@@ -39,4 +39,6 @@ public class Candidatura {
     public void removerVotos(){
         this.votosValidos.clear();
     }
+
+    public String toString(){return this.nomeFantasia + " - " + this.numero;}
 }

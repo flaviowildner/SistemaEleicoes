@@ -27,14 +27,19 @@ public class Sistema {
 
         pais = Pais.brasil();
 
-        criarCargo(Posicao.PRESIDENTE, pais);
-        criarCargo(Posicao.GOVERNADOR, pais.getChildren().get(0));
-        criarCargo(Posicao.PREFEITO, pais.getChildren().get(0).getChildren().get(0));
+        //Eleitores
+        criarEleitor("fulano", "123", "123456789", "Fulano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
+        criarEleitor("ciclano", "123", "123456789", "Ciclano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
+        criarEleitor("beltrano", "123", "123456789", "Beltrano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
 
-        criarEleicao("Presidente", cargoList.get(0), processoEleitoralList.get(0));
-        criarEleicao("Governador", cargoList.get(1), processoEleitoralList.get(0));
+        criarCargo(Posicao.PRESIDENTE, obterPais());
 
-        criarEleicao("Prefeito", cargoList.get(2), processoEleitoralList.get(1));
+        //Candidatura
+        processoEleitoralList.get(0).criarEleicao("Presidente", cargoList.get(0));
+        processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor)usuarioList.get(1));
+        processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarioList.get(2));
+
+
 
 
         TelaLogin telaLogin = new TelaLogin(this);

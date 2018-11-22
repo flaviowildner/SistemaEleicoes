@@ -22,6 +22,8 @@ public class Pais extends UF {
             Municipio gema = new Municipio("Rio de Janeiro", rj);
             Municipio capital = new Municipio("Sao Paulo", sp);
             Municipio rp = new Municipio("Ribeirao Preto", sp);
+            ZonaEleitoral zona = new ZonaEleitoral(10, "Av. Gov. Roberto Silveira", ni);
+            Secao secao = new Secao(20, zona);
         }
         return _brasil;
     }
