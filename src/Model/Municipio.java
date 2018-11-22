@@ -1,28 +1,22 @@
 package Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Municipio extends UF {
-    private List<ZonaEleitoral> zonaEleitoralList;
-    private Estado estado;
 
     public Municipio(String nome, Estado estado){
-        super(nome);
-        this.zonaEleitoralList = new ArrayList<>();
-        this.estado = estado;
-    }
-
-    public void criarZonaEleitoral(int numero, String endereco){
-        ZonaEleitoral zonaEleitoral = new ZonaEleitoral(numero, endereco, this);
-        zonaEleitoralList.add(zonaEleitoral);
+        super(nome, UF.NIVEL_MUNICIPIO, estado);
     }
 
     public Estado obterEstado(){
-        return estado;
+        return (Estado)this.father;
     }
 
-    public List<ZonaEleitoral> obterZonasEleitorais(){
-        return this.zonaEleitoralList;
+    public List<UF> obterZonasEleitorais(){
+        return this.children;
+    }
+
+    public void criarZonaEleitoral (int numero, String endereco) {
+        new ZonaEleitoral(numero, endereco, this);
     }
 }

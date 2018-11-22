@@ -1,22 +1,28 @@
 package Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Pais extends UF {
-    public List<Estado> estadoList;
+    private static Pais _brasil;
 
     public Pais(String nome){
-        super(nome);
-        estadoList = new ArrayList<>();
+        super(nome, UF.NIVEL_PAIS);
     }
 
-    public void criarEstado(String nome){
-        Estado estado = new Estado(nome, this);
-        estadoList.add(estado);
+    public List<UF> obterEstados(){
+        return this.children;
     }
 
-    public List<Estado> obterEstados(){
-        return estadoList;
+    public static Pais brasil () {
+        if (_brasil == null) {
+            _brasil = new Pais("Brasil");
+            Estado rj = new Estado("Rio de Janeiro", _brasil);
+            Estado sp = new Estado("Sao Paulo", _brasil);
+            Municipio ni = new Municipio("Nova Iguacu", rj);
+            Municipio gema = new Municipio("Rio de Janeiro", rj);
+            Municipio capital = new Municipio("Sao Paulo", sp);
+            Municipio rp = new Municipio("Ribeirao Preto", sp);
+        }
+        return _brasil;
     }
 }

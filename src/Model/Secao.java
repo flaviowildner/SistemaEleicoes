@@ -1,16 +1,15 @@
 package Model;
 
-public class Secao {
+public class Secao extends UF {
     private int numero;
-    private ZonaEleitoral zonaEleitoral;
 
-    public Secao(int numero, ZonaEleitoral zonaEleitoral){
+    public Secao(int numero, ZonaEleitoral zonaEleitoral) {
+        super(Integer.toString(numero), UF.NIVEL_SECAO, zonaEleitoral);
         this.numero = numero;
-        this.zonaEleitoral = zonaEleitoral;
     }
 
     public ZonaEleitoral obterZonaEleitoral(){
-        return this.zonaEleitoral;
+        return (ZonaEleitoral)this.father;
     }
 
     public int obterNumero(){

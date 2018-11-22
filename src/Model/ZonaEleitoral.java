@@ -3,27 +3,30 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZonaEleitoral {
+public class ZonaEleitoral extends UF {
     private int numero;
-    private int endereco;
-    private List<Secao> secaoList;
-    private Municipio municipio;
+    private String endereco;
 
-    public ZonaEleitoral(int numero, String endereco, Municipio municipio){
-        this.secaoList = new ArrayList<>();
-        this.municipio = municipio;
-    }
-
-    public void criarSecao(int numero){
-        Secao secao = new Secao(numero, this);
-        secaoList.add(secao);
+    public ZonaEleitoral(int numero, String endereco, Municipio municipio) {
+        super(Integer.toString(numero), UF.NIVEL_ZONAELEITORAL, municipio);
+        this.numero = numero;
+        this.endereco = endereco;
     }
 
     public Municipio obterMunicipio(){
-        return this.municipio;
+        return (Municipio)this.father;
     }
 
-    public List<Secao> obterSecoes(){
-        return this.secaoList;
+    public List<UF> obterSecoes(){
+        return this.children;
+    }
+
+    public void criarSecao (int numero) {
+        new Secao(numero, this);
+    }
+
+    @Override
+    public String toString () {
+        return this.getNome() + " - " + this.endereco;
     }
 }

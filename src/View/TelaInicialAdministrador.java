@@ -1,6 +1,8 @@
 package View;
 
 import Controller.Sistema;
+import Model.Pais;
+import Model.UF;
 import Model.Usuario;
 
 import javax.swing.*;
@@ -12,6 +14,7 @@ public class TelaInicialAdministrador extends View{
     private JButton cadastrarAdministradorButton;
     private JPanel rootTelaInicialAdmin;
     private JButton deslogarButton;
+    private JButton listarUfsButton;
 
     public TelaInicialAdministrador(Sistema sistema, Usuario usuario) {
         super(sistema, usuario, "Tela Inicial Administrador");
@@ -38,6 +41,14 @@ public class TelaInicialAdministrador extends View{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 deslogar();
+            }
+        });
+        listarUfsButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaListarUnidadesFederativas(sistema, usuario, Pais.brasil());
+                dispose();
             }
         });
     }

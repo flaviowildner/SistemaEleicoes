@@ -130,6 +130,7 @@ public class Sistema {
         cargoList.add(cargo);
     }
 
+    /*
     public void criarPais(String nome){
         Pais pais = new Pais(nome);
         this.pais = pais;
@@ -142,8 +143,9 @@ public class Sistema {
     public void criarMunicipio(String nome, Estado estado){
         estado.criarMunicipio(nome);
     }
+    */
 
-    public void criarZonaEleitoral(int numero, String endereco, Municipio municipio){
+    public void criarZonaEleitoral(int numero, String endereco, Municipio municipio) {
         municipio.criarZonaEleitoral(numero, endereco);
     }
 

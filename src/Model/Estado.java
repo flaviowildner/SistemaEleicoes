@@ -1,28 +1,18 @@
 package Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Estado extends UF {
-    private List<Municipio> municipioList;
-    private Pais pais;
 
     public Estado(String nome, Pais pais){
-        super(nome);
-        this.municipioList = new ArrayList<>();
-        this.pais = pais;
-    }
-
-    public void criarMunicipio(String nome){
-        Municipio municipio = new Municipio(nome, this);
-        municipioList.add(municipio);
+        super(nome, UF.NIVEL_ESTADO, pais);
     }
 
     public Pais obterPais(){
-        return this.pais;
+        return (Pais)this.father;
     }
 
-    public List<Municipio> obterMunicipios(){
-        return this.municipioList;
+    public List<UF> obterMunicipios(){
+        return this.children;
     }
 }
