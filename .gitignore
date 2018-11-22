@@ -1,3 +1,6 @@
 Eleicao.asta.lock
 out/
 *.class
+src/META-INF/
+.idea/artifacts/
+.idea/workspace.xml

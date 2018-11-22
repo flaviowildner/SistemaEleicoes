@@ -6,6 +6,7 @@ import Model.Eleitor;
 import Model.Usuario;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -36,6 +37,7 @@ public class TelaLogin extends View {
                 if(Administrador.class.isInstance(usuario)){
                     new TelaInicialAdministrador(sistema, usuario);
                 }else if(Eleitor.class.isInstance(usuario)){
+                    new TelaInicialEleitor(sistema, usuario);
                 }
                 dispose();
             }
