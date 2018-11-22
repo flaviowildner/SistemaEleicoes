@@ -15,10 +15,12 @@ public class TelaCadastrarZonaEleitoral extends View {
     private JButton cancelarButton;
     private JTextField numeroText;
     private JTextField enderecoText;
+    private JLabel title;
 
     public TelaCadastrarZonaEleitoral(Sistema sistema, Usuario usuario, UF uf) {
         super(sistema, usuario, "Cadastrar Zona Eleitoral em " + uf.getNome());
         add(rootCadastrarZonaEleitoral);
+        title.setText("Cadastrar Zona Eleitoral em " + uf.getNome());
         OKButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

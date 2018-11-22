@@ -17,7 +17,6 @@ public class TelaCadastrarSecao extends View {
     private JButton cancelarButton;
 
     public TelaCadastrarSecao (Sistema sistema, Usuario usuario, UF uf) {
-
         super(sistema, usuario, "Cadastrar Secao");
         add(rootCadastrarSecao);
 

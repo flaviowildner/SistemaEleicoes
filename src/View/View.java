@@ -17,7 +17,7 @@ public class View extends JFrame {
 
     public void configView(String title){
         setTitle(title);
-        setSize(1000, 550);
+        setSize(800, 400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
