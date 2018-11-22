@@ -21,6 +21,22 @@ public class Sistema {
 
         //Administrador default
         criarAdministrador("admin", "admin");
+        //PE teste
+        criarProcessoEleitoral("Eleições 2018");
+        criarProcessoEleitoral("Eleições 2020");
+
+        pais = Pais.brasil();
+
+        criarCargo(Posicao.PRESIDENTE, pais);
+        criarCargo(Posicao.GOVERNADOR, pais.getChildren().get(0));
+        criarCargo(Posicao.PREFEITO, pais.getChildren().get(0).getChildren().get(0));
+
+        criarEleicao("Presidente", cargoList.get(0), processoEleitoralList.get(0));
+        criarEleicao("Governador", cargoList.get(1), processoEleitoralList.get(0));
+
+        criarEleicao("Prefeito", cargoList.get(2), processoEleitoralList.get(1));
+
+
         TelaLogin telaLogin = new TelaLogin(this);
         telaLogin.setVisible(true);
 
@@ -93,6 +109,10 @@ public class Sistema {
     public void criarProcessoEleitoral(String nome){
         ProcessoEleitoral processoEleitoral = new ProcessoEleitoral(nome);
         processoEleitoralList.add(processoEleitoral);
+    }
+
+    public void criarEleicao(String nome, Cargo cargo, ProcessoEleitoral processoEleitoral){
+        processoEleitoral.criarEleicao(nome, cargo);
     }
 
     public List<ProcessoEleitoral> buscarProcessosEleitorais(){

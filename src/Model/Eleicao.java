@@ -115,4 +115,6 @@ public class Eleicao {
         }
         return vencedor;
     }
+
+    public String toString(){return this.nome;}
 }

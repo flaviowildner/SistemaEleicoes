@@ -15,6 +15,7 @@ public class TelaInicialAdministrador extends View{
     private JPanel rootTelaInicialAdmin;
     private JButton deslogarButton;
     private JButton listarUfsButton;
+    private JButton listarProcessosEleitoraisButton;
 
     public TelaInicialAdministrador(Sistema sistema, Usuario usuario) {
         super(sistema, usuario, "Tela Inicial Administrador");
@@ -48,6 +49,14 @@ public class TelaInicialAdministrador extends View{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 new TelaListarUnidadesFederativas(sistema, usuario, Pais.brasil());
+                dispose();
+            }
+        });
+        listarProcessosEleitoraisButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaListarProcessosEleitorais(sistema, usuario);
                 dispose();
             }
         });

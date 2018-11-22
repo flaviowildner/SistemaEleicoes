@@ -31,4 +31,6 @@ public class ProcessoEleitoral {
     public void encerrarEleicao(Eleicao eleicao){
         eleicao.encerrarEleicao();
     }
+
+    public String toString(){return this.nome;}
 }
