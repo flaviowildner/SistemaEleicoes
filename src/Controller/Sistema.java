@@ -20,7 +20,7 @@ public class Sistema {
         cargoList = new ArrayList<>();
 
         //Administrador default
-        criarAdministrador("ff", "ff");
+        criarAdministrador("admin", "admin");
         TelaLogin telaLogin = new TelaLogin(this);
         telaLogin.setVisible(true);
 
