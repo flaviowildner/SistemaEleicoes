@@ -39,7 +39,7 @@ public class Sistema {
         processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor)usuarioList.get(1));
         //processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarioList.get(2));
 
-
+        iniciarEleicoes(processoEleitoralList.get(0));
 
 
         TelaLogin telaLogin = new TelaLogin(this);
