@@ -16,7 +16,7 @@
           <text value="Inicio"/>
         </properties>
       </component>
-      <component id="6be12" class="javax.swing.JButton" binding="novoProcessoEleitoral">
+      <component id="6be12" class="javax.swing.JButton" binding="novoProcessoEleitoralButton">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

@@ -13,10 +13,12 @@ import java.awt.event.MouseEvent;
 public class TelaListarEleicoes extends View {
     private JPanel rootListarEleicoes;
     private JTable eleicoesTable;
-    private JButton novaEleiçãoButton;
+    private JButton novaEleicaoButton;
     private JButton inicioButton;
     private JButton voltarButton;
     private JLabel nomeLabel;
+    private JButton iniciarEleicoesButton;
+    private JButton encerrarEleicoesButton;
 
     private DefaultTableModel tmodel;
 
@@ -30,8 +32,28 @@ public class TelaListarEleicoes extends View {
         tmodel.addColumn("Sub");
 
         tmodel.setRowCount(0);
-        for (Eleicao eleicao : processoEleitoral.buscarEleicoes()) {
-            tmodel.addRow(new Object[] {eleicao});
+        if(usuario instanceof Eleitor){
+            for (Eleicao eleicao : processoEleitoral.buscarEleicoes()) {
+                if(!eleicao.eleitorJaVotou((Eleitor)usuario)){
+                    tmodel.addRow(new Object[] {eleicao});
+                }
+            }
+            novaEleicaoButton.setVisible(false);
+            novaEleicaoButton.getParent().revalidate();
+            iniciarEleicoesButton.setVisible(false);
+            iniciarEleicoesButton.getParent().revalidate();
+            encerrarEleicoesButton.setVisible(false);
+            encerrarEleicoesButton.getParent().revalidate();
+        }else {
+            for (Eleicao eleicao : processoEleitoral.buscarEleicoes()) {
+                tmodel.addRow(new Object[] {eleicao});
+            }
+            novaEleicaoButton.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                }
+            });
         }
 
         eleicoesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -61,6 +83,20 @@ public class TelaListarEleicoes extends View {
                     new TelaInicialAdministrador(sistema, usuario);
                 }
                 dispose();
+            }
+        });
+        iniciarEleicoesButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                sistema.iniciarEleicoes(processoEleitoral);
+            }
+        });
+        encerrarEleicoesButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                sistema.encerrarEleicoes(processoEleitoral);
             }
         });
     }

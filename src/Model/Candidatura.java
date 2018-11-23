@@ -16,7 +16,8 @@ public class Candidatura {
         this.votosValidos = new ArrayList<>();
     }
 
-    public void adicionarVoto(VotoValido voto){
+    public void adicionarVoto(Eleitor eleitor){
+        VotoValido voto = new VotoValido(eleitor);
         this.votosValidos.add(voto);
     }
 

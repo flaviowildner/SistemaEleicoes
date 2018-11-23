@@ -14,7 +14,7 @@ public class TelaListarProcessosEleitorais extends View{
     private JPanel rootPE;
     private JButton inicioButton;
     private JTable processosEleitoraisTable;
-    private JButton novoProcessoEleitoral;
+    private JButton novoProcessoEleitoralButton;
 
     private DefaultTableModel tmodel;
 
@@ -50,13 +50,19 @@ public class TelaListarProcessosEleitorais extends View{
                 dispose();
             }
         });
-        novoProcessoEleitoral.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                new TelaCadastrarProcessoEleitoral(sistema, usuario);
-                dispose();
-            }
-        });
+
+        if(usuario instanceof Eleitor){
+            novoProcessoEleitoralButton.setVisible(false);
+            novoProcessoEleitoralButton.getParent().revalidate();
+        }else{
+            novoProcessoEleitoralButton.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    new TelaCadastrarProcessoEleitoral(sistema, usuario);
+                    dispose();
+                }
+            });
+        }
     }
 }

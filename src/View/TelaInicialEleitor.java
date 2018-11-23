@@ -23,6 +23,14 @@ public class TelaInicialEleitor extends View{
                 deslogar();
             }
         });
+        buscarProcessosEleitoraisButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaListarProcessosEleitorais(sistema, usuario);
+                dispose();
+            }
+        });
     }
 
     private void initComponents(){

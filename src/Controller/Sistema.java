@@ -174,6 +174,23 @@ public class Sistema {
         return 4;
     }
 
+    public int registrarVoto(Eleitor eleitor, Eleicao eleicao, Candidatura candidatura){
+        if(!eleicao.eleitorJaVotou(eleitor)) {
+            eleicao.registrarVoto(eleitor, candidatura);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    public void iniciarEleicoes(ProcessoEleitoral processoEleitoral){
+        processoEleitoral.iniciarEleicoes();
+    }
+
+    public void encerrarEleicoes(ProcessoEleitoral processoEleitoral){
+        processoEleitoral.encerrarEleicoes();
+    }
+
     /*
     public void criarPais(String nome){
         Pais pais = new Pais(nome);

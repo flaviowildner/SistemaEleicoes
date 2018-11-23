@@ -24,12 +24,16 @@ public class ProcessoEleitoral {
         eleicaoList.add(eleicao);
     }
 
-    public void iniciarEleicao(Eleicao eleicao){
-        eleicao.iniciarEleição();
+    public void iniciarEleicoes(){
+        for(Eleicao eleicao : eleicaoList){
+            eleicao.iniciarEleição();
+        }
     }
 
-    public void encerrarEleicao(Eleicao eleicao){
-        eleicao.encerrarEleicao();
+    public void encerrarEleicoes(){
+        for(Eleicao eleicao : eleicaoList){
+            eleicao.encerrarEleicao();
+        }
     }
 
     public String toString(){return this.nome;}
