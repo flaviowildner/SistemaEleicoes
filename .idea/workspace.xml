@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7265b6a1-12de-484b-9747-d11a7b489c62" name="Default Changelist" comment="Adicionado as telas Registrar VotoValido e Candidatura">
-      <change afterPath="$PROJECT_DIR$/src/View/TelaCandidatura.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/TelaCandidatura.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/TelaRegistrarVoto.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/TelaRegistrarVoto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Sistema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Candidatura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Candidatura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Eleicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Eleicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ProcessoEleitoral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ProcessoEleitoral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaEleicao.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaEleicao.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/TelaEleicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaEleicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaInicialEleitor.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaInicialEleitor.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaInicialEleitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaInicialEleitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaListarEleicoes.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaListarEleicoes.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaListarEleicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaListarEleicoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaListarProcessosEleitorais.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaListarProcessosEleitorais.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TelaListarProcessosEleitorais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TelaListarProcessosEleitorais.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,128 +14,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Sistema.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="183" column="5" lean-forward="true" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#7676#7677#0" expanded="true" />
-                <element signature="e#7708#7709#0" expanded="true" />
-                <element signature="e#7797#7798#0" expanded="true" />
-                <element signature="e#7848#7849#0" expanded="true" />
-                <element signature="e#8093#8094#0" expanded="true" />
-                <element signature="e#8141#8142#0" expanded="true" />
-                <element signature="e#8171#8172#0" expanded="true" />
-                <element signature="e#8203#8204#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Eleicao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#576#577#0" expanded="true" />
-                <element signature="e#614#615#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ProcessoEleitoral.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="139">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TelaListarEleicoes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1517#1695#0" expanded="true" />
-                <element signature="e#1694#1695#0" expanded="true" />
-                <element signature="e#3014#3172#0" expanded="true" />
-                <element signature="e#3171#3172#0" expanded="true" />
-                <element signature="e#3223#3381#0" expanded="true" />
-                <element signature="e#3380#3381#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TelaListarEleicoes.form">
-          <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/TelaRegistrarVoto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#580#755#0" expanded="true" />
-                <element signature="e#754#755#0" expanded="true" />
-                <element signature="e#1067#1242#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TelaRegistrarVoto.form">
-          <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/TelaEleicao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="61" column="48" lean-forward="true" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
+            <state relative-caret-position="160">
+              <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3510#3688#0" expanded="true" />
-                <element signature="e#3687#3688#0" expanded="true" />
+                <element signature="e#3712#3890#0" expanded="true" />
+                <element signature="e#3889#3890#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/TelaResultado.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1203#1378#0" expanded="true" />
+                <element signature="e#1377#1378#0" expanded="true" />
+                <element signature="e#1508#1683#0" expanded="true" />
+                <element signature="e#1682#1683#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/TelaResultado.form">
+          <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/TelaEleicao.form">
           <provider selected="true" editor-type-id="ui-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TelaCandidatura.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#989#1164#0" expanded="true" />
-                <element signature="e#1163#1164#0" expanded="true" />
-                <element signature="e#1478#1479#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -184,8 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.form" />
-        <option value="$PROJECT_DIR$/src/View/CadastrarEleitor.form" />
         <option value="$PROJECT_DIR$/src/View/CadastrarEleitor.java" />
         <option value="$PROJECT_DIR$/src/View/TelaCadastroAdmistrador.java" />
         <option value="$PROJECT_DIR$/src/View/TelaLogin.java" />
@@ -229,12 +140,14 @@
         <option value="$PROJECT_DIR$/src/View/TelaCandidatura.java" />
         <option value="$PROJECT_DIR$/src/View/TelaCandidatura.form" />
         <option value="$PROJECT_DIR$/src/View/TelaRegistrarVoto.java" />
-        <option value="$PROJECT_DIR$/src/View/TelaEleicao.java" />
         <option value="$PROJECT_DIR$/src/Model/Eleicao.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Sistema.java" />
         <option value="$PROJECT_DIR$/src/Model/ProcessoEleitoral.java" />
         <option value="$PROJECT_DIR$/src/View/TelaListarEleicoes.form" />
         <option value="$PROJECT_DIR$/src/View/TelaListarEleicoes.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Sistema.java" />
+        <option value="$PROJECT_DIR$/src/View/TelaEleicao.java" />
+        <option value="$PROJECT_DIR$/src/View/TelaResultado.form" />
+        <option value="$PROJECT_DIR$/src/View/TelaResultado.java" />
       </list>
     </option>
   </component>
@@ -291,35 +204,7 @@
               <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaBuscarSecao" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="SistemaEleicoes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaCadastrarCargo" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="SistemaEleicoes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaCadastrarProcessoEleitoral" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="SistemaEleicoes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
               <item name="TelaCadastrarZonaEleitoral" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="SistemaEleicoes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaCandidatura" type="e9f4de52:FormNode" />
             </path>
             <path>
               <item name="SistemaEleicoes" type="b2602c69:ProjectViewProjectNode" />
@@ -361,7 +246,7 @@
               <item name="SistemaEleicoes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaRegistrarVoto" type="e9f4de52:FormNode" />
+              <item name="TelaResultado" type="e9f4de52:FormNode" />
             </path>
           </expand>
           <select />
@@ -374,7 +259,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="206" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542947131431" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542950284499" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -412,6 +297,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -505,7 +392,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106002000" />
+    <option name="totallyTimeSpent" value="109102000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -609,24 +496,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Adicionado as telas Registrar VotoValido e Candidatura" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/View/TesteView.form" />
-    <entry file="file://$PROJECT_DIR$/src/View/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaCadastrarMunicipio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/TelaLogin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -887,41 +756,13 @@
     <entry file="file://$PROJECT_DIR$/src/View/TelaCandidatura.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaCandidatura.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#989#1164#0" expanded="true" />
-            <element signature="e#1163#1164#0" expanded="true" />
-            <element signature="e#1478#1479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaRegistrarVoto.form">
+    <entry file="file://$PROJECT_DIR$/src/View/TelaListarEleicoes.form">
       <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaEleicao.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaEleicao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="61" column="48" lean-forward="true" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3510#3688#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Eleicao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+        <state relative-caret-position="192">
+          <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#576#577#0" expanded="true" />
@@ -930,63 +771,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Sistema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="183" column="5" lean-forward="true" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7708#7709#0" expanded="true" />
-            <element signature="e#7797#7798#0" expanded="true" />
-            <element signature="e#7848#7849#0" expanded="true" />
-            <element signature="e#8093#8094#0" expanded="true" />
-            <element signature="e#8141#8142#0" expanded="true" />
-            <element signature="e#8171#8172#0" expanded="true" />
-            <element signature="e#8203#8204#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ProcessoEleitoral.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TelaListarEleicoes.form">
-      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/TelaListarEleicoes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
-          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1517#1695#0" expanded="true" />
-            <element signature="e#1694#1695#0" expanded="true" />
-            <element signature="e#3014#3172#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
-            <element signature="e#3223#3381#0" expanded="true" />
-            <element signature="e#3380#3381#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/TelaRegistrarVoto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="170">
+          <caret line="22" column="76" lean-forward="true" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#580#755#0" expanded="true" />
-            <element signature="e#754#755#0" expanded="true" />
-            <element signature="e#1067#1242#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaRegistrarVoto.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaCandidatura.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaEleicao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3712#3890#0" expanded="true" />
+            <element signature="e#3889#3890#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/swing/JTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="912" column="23" lean-forward="true" selection-start-line="912" selection-start-column="23" selection-end-line="912" selection-end-column="23" />
+          <folding>
+            <element signature="e#34811#34812#0" expanded="true" />
+            <element signature="e#34845#34846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaEleicao.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaResultado.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TelaResultado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1203#1378#0" expanded="true" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1508#1683#0" expanded="true" />
+            <element signature="e#1682#1683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Sistema.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -91,6 +91,8 @@ public class TelaEleicao extends View{
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
+                    new TelaResultado(sistema, usuario, processoEleitoral, eleicao);
+                    dispose();
                 }
             });
         }
