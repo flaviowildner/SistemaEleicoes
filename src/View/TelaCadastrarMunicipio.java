@@ -17,7 +17,7 @@ public class TelaCadastrarMunicipio extends View {
     private JTextField nomeText;
     private JPanel rootCadastrarMunicipio;
 
-    public TelaCadastrarMunicipio(Usuario usuario, Estado estado, Operacao operacao, ViewReturn<UF> result) {
+    public TelaCadastrarMunicipio(Usuario usuario, Estado estado, Operacao operacao) {
         super(usuario, "Cadastrar Municipio em " + estado.getNome());
         add(rootCadastrarMunicipio);
         okButton.addMouseListener(new MouseAdapter() {
@@ -25,7 +25,7 @@ public class TelaCadastrarMunicipio extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Sistema.criarMunicipio(nomeText.getText(), estado);
-                new TelaListarUnidadesFederativas(usuario, estado, operacao, result);
+                new TelaListarUnidadesFederativas(usuario, estado, operacao);
                 dispose();
             }
         });
@@ -34,7 +34,7 @@ public class TelaCadastrarMunicipio extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(usuario, estado, operacao, result);
+                new TelaListarUnidadesFederativas(usuario, estado, operacao);
                 dispose();
             }
         });

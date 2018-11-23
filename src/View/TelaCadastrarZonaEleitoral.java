@@ -19,7 +19,7 @@ public class TelaCadastrarZonaEleitoral extends View {
     private JTextField enderecoText;
     private JLabel title;
 
-    public TelaCadastrarZonaEleitoral(Usuario usuario, Municipio uf, Operacao operacao, ViewReturn<UF> result) {
+    public TelaCadastrarZonaEleitoral(Usuario usuario, Municipio uf, Operacao operacao) {
         super(usuario, "Cadastrar Zona Eleitoral em " + uf.getNome());
         add(rootCadastrarZonaEleitoral);
         title.setText("Cadastrar Zona Eleitoral em " + uf.getNome());
@@ -28,7 +28,7 @@ public class TelaCadastrarZonaEleitoral extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Sistema.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText(), uf);
-                new TelaListarUnidadesFederativas(usuario, uf, operacao, result);
+                new TelaListarUnidadesFederativas(usuario, uf, operacao);
                 dispose();
             }
         });
@@ -36,7 +36,7 @@ public class TelaCadastrarZonaEleitoral extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(usuario, uf, operacao, result);
+                new TelaListarUnidadesFederativas(usuario, uf, operacao);
                 dispose();
             }
         });

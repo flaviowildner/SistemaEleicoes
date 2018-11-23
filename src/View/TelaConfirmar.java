@@ -11,14 +11,14 @@ public class TelaConfirmar extends View {
     private JButton simButton;
     private JButton naoButton;
 
-    public TelaConfirmar(Usuario usuario, ViewReturn<Boolean> result) {
+    public TelaConfirmar(Usuario usuario) {
         super(usuario, "Confirmar Acao");
         add(rootConfirmar);
         simButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                result.setResult(true);
+                if (session != null) session.put("confirmation", true);
                 dispose();
             }
         });
@@ -27,7 +27,7 @@ public class TelaConfirmar extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                result.setResult(false);
+                if (session != null) session.put("confirmation", false);
                 dispose();
             }
         });

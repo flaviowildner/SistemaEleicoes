@@ -9,6 +9,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 
 public class TelaListarUnidadesFederativas extends View {
     private JTable unidadesFederativasTable;
@@ -20,6 +21,7 @@ public class TelaListarUnidadesFederativas extends View {
     private JButton novaSecaoButton;
     private JButton novoEstadoButton;
     private JButton novoMunicipioButton;
+    private JButton selecionarButton;
 
     private UF currentUf;
     private DefaultTableModel tmodel;
@@ -28,38 +30,36 @@ public class TelaListarUnidadesFederativas extends View {
         NADA, SELECIONAR_UF, SELECIONAR_ESTADO, SELECIONAR_MUNICIPIO, SELECIONAR_ZONAELEITORAL, SELECIONAR_SECAO
     }
 
-    public TelaListarUnidadesFederativas(Usuario usuario, UF uf, Operacao operacao, ViewReturn<UF> result) {
+    public TelaListarUnidadesFederativas(Usuario usuario, UF uf, Operacao operacao) {
         super(usuario, "Unidade Federativa");
-
-        tmodel = (DefaultTableModel)this.unidadesFederativasTable.getModel();
-        currentUf = uf;
-
         add(rootListarUfs);
 
-        nomeLabel.setText(uf.toString());
-
+        tmodel = (DefaultTableModel)this.unidadesFederativasTable.getModel();
         tmodel.addColumn("Sub");
-        this.reloadList();
 
-        this.unidadesFederativasTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        this.unidadesFederativasTable.addMouseListener(new MouseAdapter() {
             @Override
-            public void valueChanged (ListSelectionEvent e) {
-                UF selection = (UF) tmodel.getValueAt(unidadesFederativasTable.getSelectedRow(), 0);
+            public void mouseClicked (MouseEvent e) {
+                UF selection = (UF)tmodel.getValueAt(unidadesFederativasTable.rowAtPoint(e.getPoint()), 0);
                 if (    selection instanceof Estado && operacao == Operacao.SELECIONAR_ESTADO ||
                         selection instanceof Municipio && operacao == Operacao.SELECIONAR_MUNICIPIO ||
                         selection instanceof ZonaEleitoral && operacao == Operacao.SELECIONAR_ZONAELEITORAL ||
                         selection instanceof Secao && operacao == Operacao.SELECIONAR_SECAO
                     ) {
-                    ViewReturn<Boolean> b = new ViewReturn<Boolean>();
-                    new TelaConfirmar(usuario, b);
-                    if (b.getResult()) {
-                        result.setResult(selection);
-                        dispose();
-                    }
+                    View v = new TelaConfirmar(usuario);
+                    useSession();
+                    v.useSession(session);
+                    onResume(() -> {
+                        Boolean confirmed = (Boolean)session.get("confirmation");
+                        if (confirmed) {
+                            session.put("uf", selection);
+                            dispose();
+                        }
+                    });
+                    v.halt(TelaListarUnidadesFederativas.this);
                 }
-                else{
-                    new TelaListarUnidadesFederativas(usuario, selection, operacao, result);
-                    dispose();
+                else {
+                    refresh(selection);
                 }
             }
         });
@@ -77,7 +77,7 @@ public class TelaListarUnidadesFederativas extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (currentUf.getFather() != null) {
-                    new TelaListarUnidadesFederativas(usuario, currentUf.getFather(), operacao, result);
+                    new TelaListarUnidadesFederativas(usuario, currentUf.getFather(), operacao);
                 } else {
                     new TelaInicialAdministrador(usuario);
                 }
@@ -89,7 +89,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarZonaEleitoral(usuario, (Municipio)currentUf, operacao, result);
+                new TelaCadastrarZonaEleitoral(usuario, (Municipio)currentUf, operacao);
                 dispose();
             }
         });
@@ -98,7 +98,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarEstado(usuario, operacao, result);
+                new TelaCadastrarEstado(usuario, operacao);
                 dispose();
             }
         });
@@ -107,7 +107,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarMunicipio(usuario, (Estado)currentUf, operacao, result);
+                new TelaCadastrarMunicipio(usuario, (Estado)currentUf, operacao);
                 dispose();
             }
         });
@@ -116,10 +116,39 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarSecao(usuario, (ZonaEleitoral)currentUf, operacao, result);
+                new TelaCadastrarSecao(usuario, (ZonaEleitoral)currentUf, operacao);
                 dispose();
             }
         });
+
+        selecionarButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (session != null) session.put("uf", currentUf);
+                dispose();
+            }
+        });
+
+        if (operacao != Operacao.SELECIONAR_UF) {
+            selecionarButton.setVisible(false);
+            selecionarButton.getParent().revalidate();
+        }
+
+        this.refresh(uf);
+    }
+
+    private void reloadList () {
+        this.tmodel.setRowCount(0);
+        for (UF child : this.currentUf.getChildren()) {
+            this.tmodel.addRow(new Object[] {child});
+        }
+    }
+
+    private void refresh (UF uf) {
+        this.currentUf = uf;
+        nomeLabel.setText(this.currentUf.toString());
+        this.reloadList();
 
         if (!(currentUf instanceof Municipio)) {
             novaZonaEleitoralButton.setVisible(false);
@@ -139,15 +168,6 @@ public class TelaListarUnidadesFederativas extends View {
         if (!(currentUf instanceof Estado)) {
             novoMunicipioButton.setVisible(false);
             novoMunicipioButton.getParent().revalidate();
-        }
-
-
-    }
-
-    private void reloadList () {
-        tmodel.setRowCount(0);
-        for (UF child : currentUf.getChildren()) {
-            tmodel.addRow(new Object[] {child});
         }
     }
 }

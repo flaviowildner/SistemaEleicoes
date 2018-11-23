@@ -46,7 +46,7 @@ public class TelaInicialAdministrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.NADA, null);
+                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.NADA);
                 dispose();
             }
         });

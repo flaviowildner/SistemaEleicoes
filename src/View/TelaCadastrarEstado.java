@@ -15,7 +15,7 @@ public class TelaCadastrarEstado extends View {
     private JButton cancelarButton;
     private JTextField nomeText;
 
-    public TelaCadastrarEstado(Usuario usuario, Operacao operacao, ViewReturn<UF> result) {
+    public TelaCadastrarEstado(Usuario usuario, Operacao operacao) {
         super(usuario, "Cadastrar Estado");
         add(rootCadastrarEstado);
 
@@ -24,7 +24,7 @@ public class TelaCadastrarEstado extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Sistema.criarEstado(nomeText.getText());
-                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), operacao, result);
+                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), operacao);
                 dispose();
             }
         });
@@ -33,7 +33,7 @@ public class TelaCadastrarEstado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), operacao, result);
+                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), operacao);
                 dispose();
             }
         });
