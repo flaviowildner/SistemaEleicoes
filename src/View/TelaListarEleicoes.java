@@ -89,14 +89,14 @@ public class TelaListarEleicoes extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.iniciarEleicoes(processoEleitoral);
+                Sistema.iniciarEleicoes(processoEleitoral);
             }
         });
         encerrarEleicoesButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.encerrarEleicoes(processoEleitoral);
+                Sistema.encerrarEleicoes(processoEleitoral);
             }
         });
     }

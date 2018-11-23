@@ -27,7 +27,7 @@ public class TelaInicialEleitor extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(sistema, usuario);
+                new TelaListarProcessosEleitorais(usuario);
                 dispose();
             }
         });

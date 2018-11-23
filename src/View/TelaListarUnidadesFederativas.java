@@ -77,11 +77,11 @@ public class TelaListarUnidadesFederativas extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (currentUf.getFather() != null) {
-                    new TelaListarUnidadesFederativas(usuario, currentUf.getFather(), operacao);
+                    refresh(currentUf.getFather());
                 } else {
                     new TelaInicialAdministrador(usuario);
+                    dispose();
                 }
-                dispose();
             }
         });
 
@@ -150,24 +150,17 @@ public class TelaListarUnidadesFederativas extends View {
         nomeLabel.setText(this.currentUf.toString());
         this.reloadList();
 
-        if (!(currentUf instanceof Municipio)) {
-            novaZonaEleitoralButton.setVisible(false);
-            novaZonaEleitoralButton.getParent().revalidate();
-        }
+        novaZonaEleitoralButton.setVisible(currentUf instanceof Municipio);
+        novaZonaEleitoralButton.getParent().revalidate();
 
-        if (!(currentUf instanceof ZonaEleitoral)) {
-            novaSecaoButton.setVisible(false);
-            novaSecaoButton.getParent().revalidate();
-        }
+        novaSecaoButton.setVisible(currentUf instanceof ZonaEleitoral);
+        novaSecaoButton.getParent().revalidate();
 
-        if (!(currentUf instanceof Pais)) {
-            novoEstadoButton.setVisible(false);
-            novoEstadoButton.getParent().revalidate();
-        }
+        novoEstadoButton.setVisible(currentUf instanceof Pais);
+        novoEstadoButton.getParent().revalidate();
 
-        if (!(currentUf instanceof Estado)) {
-            novoMunicipioButton.setVisible(false);
-            novoMunicipioButton.getParent().revalidate();
-        }
+        novoMunicipioButton.setVisible(currentUf instanceof Estado);
+        novoMunicipioButton.getParent().revalidate();
+
     }
 }
