@@ -1,8 +1,6 @@
 package View;
 
 import Controller.Sistema;
-import Model.Pais;
-import Model.UF;
 import Model.Usuario;
 
 import javax.swing.*;
@@ -17,8 +15,8 @@ public class TelaInicialAdministrador extends View{
     private JButton listarUfsButton;
     private JButton listarProcessosEleitoraisButton;
 
-    public TelaInicialAdministrador(Sistema sistema, Usuario usuario) {
-        super(sistema, usuario, "Tela Inicial Administrador");
+    public TelaInicialAdministrador(Usuario usuario) {
+        super(usuario, "Tela Inicial Administrador");
         initComponents();
 
         cadastrarAdministradorButton.addMouseListener(new MouseAdapter() {
@@ -48,7 +46,7 @@ public class TelaInicialAdministrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(sistema, usuario, Pais.brasil());
+                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.NADA, null);
                 dispose();
             }
         });
@@ -56,7 +54,7 @@ public class TelaInicialAdministrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(sistema, usuario);
+                new TelaListarProcessosEleitorais(usuario);
                 dispose();
             }
         });
@@ -67,17 +65,17 @@ public class TelaInicialAdministrador extends View{
     }
 
     private void solicitarCadastroEleitor(){
-        new TelaCadastroEleitor(sistema, usuario);
+        new TelaCadastroEleitor(usuario);
         dispose();
     }
 
     private void solicitarCadastroAdministrador(){
-        new TelaCadastroAdmistrador(sistema, usuario);
+        new TelaCadastroAdmistrador(usuario);
         dispose();
     }
 
     private void deslogar(){
-        new TelaLogin(sistema);
+        new TelaLogin();
         dispose();
     }
 }

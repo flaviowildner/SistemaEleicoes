@@ -24,8 +24,12 @@ public class TelaListarUnidadesFederativas extends View {
     private UF currentUf;
     private DefaultTableModel tmodel;
 
-    public TelaListarUnidadesFederativas(Sistema sistema, Usuario usuario, UF uf) {
-        super(sistema, usuario, "Unidade Federativa");
+    public enum Operacao {
+        NADA, SELECIONAR_UF, SELECIONAR_ESTADO, SELECIONAR_MUNICIPIO, SELECIONAR_ZONAELEITORAL, SELECIONAR_SECAO
+    }
+
+    public TelaListarUnidadesFederativas(Usuario usuario, UF uf, Operacao operacao, ViewReturn<UF> result) {
+        super(usuario, "Unidade Federativa");
 
         tmodel = (DefaultTableModel)this.unidadesFederativasTable.getModel();
         currentUf = uf;
@@ -40,8 +44,23 @@ public class TelaListarUnidadesFederativas extends View {
         this.unidadesFederativasTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaListarUnidadesFederativas(sistema, usuario, (UF)tmodel.getValueAt(unidadesFederativasTable.getSelectedRow(), 0));
-                dispose();
+                UF selection = (UF) tmodel.getValueAt(unidadesFederativasTable.getSelectedRow(), 0);
+                if (    selection instanceof Estado && operacao == Operacao.SELECIONAR_ESTADO ||
+                        selection instanceof Municipio && operacao == Operacao.SELECIONAR_MUNICIPIO ||
+                        selection instanceof ZonaEleitoral && operacao == Operacao.SELECIONAR_ZONAELEITORAL ||
+                        selection instanceof Secao && operacao == Operacao.SELECIONAR_SECAO
+                    ) {
+                    ViewReturn<Boolean> b = new ViewReturn<Boolean>();
+                    new TelaConfirmar(usuario, b);
+                    if (b.getResult()) {
+                        result.setResult(selection);
+                        dispose();
+                    }
+                }
+                else{
+                    new TelaListarUnidadesFederativas(usuario, selection, operacao, result);
+                    dispose();
+                }
             }
         });
 
@@ -49,7 +68,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaInicialAdministrador(sistema, usuario);
+                new TelaInicialAdministrador(usuario);
                 dispose();
             }
         });
@@ -58,9 +77,9 @@ public class TelaListarUnidadesFederativas extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (currentUf.getFather() != null) {
-                    new TelaListarUnidadesFederativas(sistema, usuario, currentUf.getFather());
+                    new TelaListarUnidadesFederativas(usuario, currentUf.getFather(), operacao, result);
                 } else {
-                    new TelaInicialAdministrador(sistema, usuario);
+                    new TelaInicialAdministrador(usuario);
                 }
                 dispose();
             }
@@ -70,7 +89,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarZonaEleitoral(sistema, usuario, currentUf);
+                new TelaCadastrarZonaEleitoral(usuario, (Municipio)currentUf, operacao, result);
                 dispose();
             }
         });
@@ -79,7 +98,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarEstado();
+                new TelaCadastrarEstado(usuario, operacao, result);
                 dispose();
             }
         });
@@ -88,7 +107,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarMunicipio();
+                new TelaCadastrarMunicipio(usuario, (Estado)currentUf, operacao, result);
                 dispose();
             }
         });
@@ -97,7 +116,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarSecao(sistema, usuario, currentUf);
+                new TelaCadastrarSecao(usuario, (ZonaEleitoral)currentUf, operacao, result);
                 dispose();
             }
         });

@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import View.TelaListarUnidadesFederativas.Operacao;
+
 public class TelaCadastrarZonaEleitoral extends View {
     private JButton OKButton;
     private JPanel rootCadastrarZonaEleitoral;
@@ -17,16 +19,16 @@ public class TelaCadastrarZonaEleitoral extends View {
     private JTextField enderecoText;
     private JLabel title;
 
-    public TelaCadastrarZonaEleitoral(Sistema sistema, Usuario usuario, UF uf) {
-        super(sistema, usuario, "Cadastrar Zona Eleitoral em " + uf.getNome());
+    public TelaCadastrarZonaEleitoral(Usuario usuario, Municipio uf, Operacao operacao, ViewReturn<UF> result) {
+        super(usuario, "Cadastrar Zona Eleitoral em " + uf.getNome());
         add(rootCadastrarZonaEleitoral);
         title.setText("Cadastrar Zona Eleitoral em " + uf.getNome());
         OKButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText(), (Municipio)uf);
-                new TelaListarUnidadesFederativas(sistema, usuario, uf);
+                Sistema.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText(), uf);
+                new TelaListarUnidadesFederativas(usuario, uf, operacao, result);
                 dispose();
             }
         });
@@ -34,7 +36,7 @@ public class TelaCadastrarZonaEleitoral extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(sistema, usuario, uf);
+                new TelaListarUnidadesFederativas(usuario, uf, operacao, result);
                 dispose();
             }
         });

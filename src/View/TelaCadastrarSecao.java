@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import View.TelaListarUnidadesFederativas.Operacao;
+
 public class TelaCadastrarSecao extends View {
 
     private JTextField numeroText;
@@ -16,16 +18,16 @@ public class TelaCadastrarSecao extends View {
     private JButton OKButton;
     private JButton cancelarButton;
 
-    public TelaCadastrarSecao (Sistema sistema, Usuario usuario, UF uf) {
-        super(sistema, usuario, "Cadastrar Secao");
+    public TelaCadastrarSecao (Usuario usuario, ZonaEleitoral uf, Operacao operacao, ViewReturn<UF> result) {
+        super(usuario, "Cadastrar Secao");
         add(rootCadastrarSecao);
 
         OKButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.criarSecao(Integer.parseInt(numeroText.getText()), (ZonaEleitoral)uf);
-                new TelaListarUnidadesFederativas(sistema, usuario, uf);
+                Sistema.criarSecao(Integer.parseInt(numeroText.getText()), uf);
+                new TelaListarUnidadesFederativas(usuario, uf, operacao, result);
                 dispose();
             }
         });
@@ -33,7 +35,7 @@ public class TelaCadastrarSecao extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(sistema, usuario, uf);
+                new TelaListarUnidadesFederativas(usuario, uf, operacao, result);
                 dispose();
             }
         });

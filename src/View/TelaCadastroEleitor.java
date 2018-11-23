@@ -16,15 +16,15 @@ public class TelaCadastroEleitor extends View{
     private JTextField nomeField;
     private JButton voltar;
 
-    public TelaCadastroEleitor(Sistema sistema, Usuario usuario){
-        super(sistema, usuario, "Cadastro Eleitor");
+    public TelaCadastroEleitor(Usuario usuario){
+        super(usuario, "Cadastro Eleitor");
         initComponents();
 
         cadastrarEleitorButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.criarEleitor(loginField.getText(), new String(passwordField.getPassword()), cpfField.getText(), nomeField.getText(), null);
+                Sistema.criarEleitor(loginField.getText(), new String(passwordField.getPassword()), cpfField.getText(), nomeField.getText(), null);
                 voltarTelaInicialAdministrador();
             }
         });
@@ -38,7 +38,7 @@ public class TelaCadastroEleitor extends View{
     }
 
     private void voltarTelaInicialAdministrador(){
-        new TelaInicialAdministrador(sistema, usuario);
+        new TelaInicialAdministrador(usuario);
         dispose();
     }
 

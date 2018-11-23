@@ -1,16 +1,13 @@
 package View;
 
-import Controller.Sistema;
 import Model.Usuario;
 
 import javax.swing.*;
 
 public class View extends JFrame {
-    Sistema sistema;
     Usuario usuario;
 
-    public View(Sistema sistema, Usuario usuario, String title){
-        this.sistema = sistema;
+    public View(Usuario usuario, String title){
         this.usuario = usuario;
         configView(title);
     }

@@ -15,15 +15,15 @@ public class TelaCadastroAdmistrador extends View{
     private JButton cadastrarButton;
     private JButton voltar;
 
-    public TelaCadastroAdmistrador(Sistema sistema, Usuario usuario){
-        super(sistema, usuario, "Cadastro Administrador");
+    public TelaCadastroAdmistrador(Usuario usuario){
+        super(usuario, "Cadastro Administrador");
         initComponents();
 
         cadastrarButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-            sistema.criarAdministrador(loginField.getText(), new String(passwordField.getPassword()));
+            Sistema.criarAdministrador(loginField.getText(), new String(passwordField.getPassword()));
             voltarTelaInicialAdministrador();
             }
         });
@@ -38,7 +38,7 @@ public class TelaCadastroAdmistrador extends View{
     }
 
     private void voltarTelaInicialAdministrador(){
-        new TelaInicialAdministrador(sistema, usuario);
+        new TelaInicialAdministrador(usuario);
         dispose();
     }
 

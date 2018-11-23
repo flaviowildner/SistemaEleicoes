@@ -18,8 +18,8 @@ public class TelaCandidatosEleicao extends View{
 
     private DefaultTableModel tmodel;
 
-    public TelaCandidatosEleicao(Sistema sistema, Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
-        super(sistema, usuario, "Listar Candidatos");
+    public TelaCandidatosEleicao(Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+        super(usuario, "Listar Candidatos");
         add(rootEleicao);
 
         nomeEleicao.setText(processoEleitoral.toString() + " - " + eleicao.toString());
@@ -37,7 +37,7 @@ public class TelaCandidatosEleicao extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarEleicoes(sistema, usuario, processoEleitoral);
+                new TelaListarEleicoes(usuario, processoEleitoral);
                 dispose();
             }
         });
@@ -46,9 +46,9 @@ public class TelaCandidatosEleicao extends View{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(sistema, usuario);
+                    new TelaInicialEleitor(usuario);
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(sistema, usuario);
+                    new TelaInicialAdministrador(usuario);
                 }
                 dispose();
             }

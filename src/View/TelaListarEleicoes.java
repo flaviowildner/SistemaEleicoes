@@ -20,8 +20,8 @@ public class TelaListarEleicoes extends View {
 
     private DefaultTableModel tmodel;
 
-    public TelaListarEleicoes(Sistema sistema, Usuario usuario, ProcessoEleitoral processoEleitoral){
-        super(sistema, usuario, "Listar Eleiçoes");
+    public TelaListarEleicoes(Usuario usuario, ProcessoEleitoral processoEleitoral){
+        super(usuario, "Listar Eleiçoes");
         add(rootListarEleicoes);
 
         nomeLabel.setText(processoEleitoral.toString());
@@ -37,7 +37,7 @@ public class TelaListarEleicoes extends View {
         eleicoesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaCandidatosEleicao(sistema, usuario, processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
+                new TelaCandidatosEleicao(usuario, processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
                 dispose();
             }
         });
@@ -46,7 +46,7 @@ public class TelaListarEleicoes extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(sistema, usuario);
+                new TelaListarProcessosEleitorais(usuario);
                 dispose();
             }
         });
@@ -56,9 +56,9 @@ public class TelaListarEleicoes extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(sistema, usuario);
+                    new TelaInicialEleitor(usuario);
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(sistema, usuario);
+                    new TelaInicialAdministrador(usuario);
                 }
                 dispose();
             }

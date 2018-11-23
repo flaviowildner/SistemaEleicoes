@@ -18,22 +18,22 @@ public class TelaListarProcessosEleitorais extends View{
 
     private DefaultTableModel tmodel;
 
-    public TelaListarProcessosEleitorais(Sistema sistema, Usuario usuario){
-        super(sistema, usuario, "Listar Processos Eleitorais");
+    public TelaListarProcessosEleitorais(Usuario usuario){
+        super(usuario, "Listar Processos Eleitorais");
         add(rootPE);
 
         tmodel = (DefaultTableModel)this.processosEleitoraisTable.getModel();
         tmodel.addColumn("Sub");
 
         tmodel.setRowCount(0);
-        for (ProcessoEleitoral pe : sistema.buscarProcessosEleitorais()) {
+        for (ProcessoEleitoral pe : Sistema.buscarProcessosEleitorais()) {
             tmodel.addRow(new Object[] {pe});
         }
 
         processosEleitoraisTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaListarEleicoes(sistema, usuario, (ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(), 0));
+                new TelaListarEleicoes(usuario, (ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(), 0));
                 dispose();
             }
         });
@@ -43,9 +43,9 @@ public class TelaListarProcessosEleitorais extends View{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(sistema, usuario);
+                    new TelaInicialEleitor(usuario);
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(sistema, usuario);
+                    new TelaInicialAdministrador(usuario);
                 }
                 dispose();
             }
@@ -54,7 +54,7 @@ public class TelaListarProcessosEleitorais extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarProcessoEleitoral(sistema, usuario);
+                //new TelaCadastrarProcessoEleitoral(usuario);
                 dispose();
             }
         });
