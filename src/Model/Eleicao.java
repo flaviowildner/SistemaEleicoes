@@ -64,8 +64,7 @@ public class Eleicao {
         if(eleitorJaVotou(eleitor)){
             return;
         }
-        VotoValido voto = new VotoValido(eleitor);
-        candidatura.adicionarVoto(voto);
+        candidatura.adicionarVoto(eleitor);
     }
 
     public void registrarVotoInvalido(Eleitor eleitor, TipoVotoInvalido tipoVoto){

@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="e76f6" class="javax.swing.JTable" binding="tableCandidatos">
+      <component id="e76f6" class="javax.swing.JTable" binding="candidatosTable">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>

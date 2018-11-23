@@ -12,9 +12,6 @@ public class Sistema {
     private static List<Cargo> _cargos = null;
     private static Pais _brasil = null;
 
-
-    //JFrame telaAtual = null;
-
     public static void inicializar () {
 
         TelaLogin telaLogin = new TelaLogin();
@@ -49,6 +46,7 @@ public class Sistema {
             processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor)usuarios().get(1));
             processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarios().get(2));
             criarProcessoEleitoral("Eleicoes 2020");
+            iniciarEleicoes(processosEleitorais().get(0));
         }
         return _processosEleitorais;
     }
@@ -130,7 +128,7 @@ public class Sistema {
         return retornoCandidatura;
     }
 
-    public List<Administrador> buscarAdministrador(){
+    public static List<Administrador> buscarAdministrador(){
         List<Administrador> retornoAdministrador = new ArrayList<>();
         for(Usuario usuario : usuarios()){
             if(usuario instanceof Administrador){
@@ -154,8 +152,25 @@ public class Sistema {
         return 4;
     }
 
-    public static void criarEstado(String nome){
+    public static void criarEstado(String nome) {
         brasil().criarEstado(nome);
+    }
+
+    public static int registrarVoto(Eleitor eleitor, Eleicao eleicao, Candidatura candidatura){
+        if(!eleicao.eleitorJaVotou(eleitor)) {
+            eleicao.registrarVoto(eleitor, candidatura);
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    public static void iniciarEleicoes(ProcessoEleitoral processoEleitoral){
+        processoEleitoral.iniciarEleicoes();
+    }
+
+    public static void encerrarEleicoes(ProcessoEleitoral processoEleitoral){
+        processoEleitoral.encerrarEleicoes();
     }
 
     public static void criarMunicipio(String nome, Estado estado){
