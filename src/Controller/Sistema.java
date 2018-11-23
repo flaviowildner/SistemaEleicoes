@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
-
     private static List<Usuario> _usuarios = null;
     private static List<ProcessoEleitoral> _processosEleitorais = null;
     private static List<Cargo> _cargos = null;
@@ -109,11 +108,11 @@ public class Sistema {
         return processoEleitoral.buscarEleicoes();
     }
 
-    public static List<Usuario> buscarEleitor(){
-        List<Usuario> retornoEleitor = new ArrayList<>();
+    public static List<Eleitor> buscarEleitor(){
+        List<Eleitor> retornoEleitor = new ArrayList<>();
         for(Usuario usuario : usuarios()) {
             if(usuario instanceof Eleitor){
-                retornoEleitor.add(usuario);
+                retornoEleitor.add((Eleitor)usuario);
             }
         }
         return retornoEleitor;
@@ -131,9 +130,28 @@ public class Sistema {
         return retornoCandidatura;
     }
 
+    public List<Administrador> buscarAdministrador(){
+        List<Administrador> retornoAdministrador = new ArrayList<>();
+        for(Usuario usuario : usuarios()){
+            if(usuario instanceof Administrador){
+                retornoAdministrador.add((Administrador) usuario);
+            }
+        }
+        return retornoAdministrador;
+    }
+
     public static void criarCargo(Posicao posicao, UF uf){
         Cargo cargo = new Cargo(posicao, uf);
         _cargos.add(cargo);
+    }
+
+    public static int adicionarCandidatura(Eleicao eleicao, String nomeFantasia, int numero, String cpfEleitor){
+        for(Eleitor eleitor : buscarEleitor()){
+            if(eleitor.obterCPF().equals(cpfEleitor)){
+                return eleicao.adicionarCandidatura(nomeFantasia, numero, eleitor);
+            }
+        }
+        return 4;
     }
 
     public static void criarEstado(String nome){

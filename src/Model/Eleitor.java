@@ -16,6 +16,8 @@ public class Eleitor extends Usuario {
         return this.secao;
     }
 
+    public String obterCPF(){return this.cpf;}
+
     public void alterarSecao(Secao secao){
         this.secao = secao;
     }
