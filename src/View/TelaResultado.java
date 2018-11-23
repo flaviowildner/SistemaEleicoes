@@ -20,8 +20,8 @@ public class TelaResultado extends View {
 
     private DefaultTableModel tmodel;
 
-    public TelaResultado(Sistema sistema, Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
-        super(sistema, usuario, "Resultado da Eleição");
+    public TelaResultado(Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+        super(usuario, "Resultado da Eleição");
         add(rootResultado);
 
         tmodel = (DefaultTableModel)this.resultadoTable.getModel();
@@ -38,7 +38,7 @@ public class TelaResultado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao(sistema, usuario, processoEleitoral, eleicao);
+                new TelaEleicao(usuario, processoEleitoral, eleicao);
                 dispose();
             }
         });
@@ -46,7 +46,7 @@ public class TelaResultado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaInicialAdministrador(sistema, usuario);
+                new TelaInicialAdministrador(usuario);
                 dispose();
             }
         });
