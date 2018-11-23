@@ -36,6 +36,8 @@ public class Candidatura {
         return this.nomeFantasia;
     }
 
+    public Eleitor obterEleitor(){return this.eleitor;}
+
     public void removerVotos(){
         this.votosValidos.clear();
     }

@@ -37,7 +37,7 @@ public class TelaListarEleicoes extends View {
         eleicoesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaCandidatosEleicao(sistema, usuario, processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
+                new TelaEleicao(sistema, usuario, processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
                 dispose();
             }
         });

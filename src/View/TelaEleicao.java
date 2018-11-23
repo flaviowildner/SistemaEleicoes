@@ -8,17 +8,18 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TelaCandidatosEleicao extends View{
+public class TelaEleicao extends View{
     private JPanel rootEleicao;
     private JTable tableCandidatos;
     private JLabel nomeEleicao;
     private JButton adicionarCandidaturaButton;
     private JButton inicioButton;
     private JButton voltarButton;
+    private JButton exibirResultadoButton;
 
     private DefaultTableModel tmodel;
 
-    public TelaCandidatosEleicao(Sistema sistema, Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+    public TelaEleicao(Sistema sistema, Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
         super(sistema, usuario, "Listar Candidatos");
         add(rootEleicao);
 
@@ -50,6 +51,14 @@ public class TelaCandidatosEleicao extends View{
                 }else if(usuario instanceof Administrador){
                     new TelaInicialAdministrador(sistema, usuario);
                 }
+                dispose();
+            }
+        });
+        adicionarCandidaturaButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaAdicionarCandidatura(sistema, usuario, processoEleitoral, eleicao);
                 dispose();
             }
         });

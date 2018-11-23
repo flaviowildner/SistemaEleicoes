@@ -28,16 +28,16 @@ public class Sistema {
         pais = Pais.brasil();
 
         //Eleitores
-        criarEleitor("fulano", "123", "123456789", "Fulano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
-        criarEleitor("ciclano", "123", "123456789", "Ciclano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
-        criarEleitor("beltrano", "123", "123456789", "Beltrano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
+        criarEleitor("fulano", "123", "123", "Fulano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
+        criarEleitor("ciclano", "123", "1234", "Ciclano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
+        criarEleitor("beltrano", "123", "12345", "Beltrano", (Secao)pais.getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0));
 
         criarCargo(Posicao.PRESIDENTE, obterPais());
 
         //Candidatura
         processoEleitoralList.get(0).criarEleicao("Presidente", cargoList.get(0));
         processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor)usuarioList.get(1));
-        processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarioList.get(2));
+        //processoEleitoralList.get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarioList.get(2));
 
 
 
@@ -128,14 +128,24 @@ public class Sistema {
         return processoEleitoral.buscarEleicoes();
     }
 
-    public List<Usuario> buscarEleitor(){
-        List<Usuario> retornoEleitor = new ArrayList<>();
+    public List<Eleitor> buscarEleitor(){
+        List<Eleitor> retornoEleitor = new ArrayList<>();
         for(Usuario usuario : usuarioList){
             if(usuario instanceof Eleitor){
-                retornoEleitor.add(usuario);
+                retornoEleitor.add((Eleitor)usuario);
             }
         }
         return retornoEleitor;
+    }
+
+    public List<Administrador> buscarAdministrador(){
+        List<Administrador> retornoAdministrador = new ArrayList<>();
+        for(Usuario usuario : usuarioList){
+            if(usuario instanceof Administrador){
+                retornoAdministrador.add((Administrador) usuario);
+            }
+        }
+        return retornoAdministrador;
     }
 
     public List<Candidatura> buscarCandidatura(){
@@ -153,6 +163,15 @@ public class Sistema {
     public void criarCargo(Posicao posicao, UF uf){
         Cargo cargo = new Cargo(posicao, uf);
         cargoList.add(cargo);
+    }
+
+    public int adicionarCandidatura(Eleicao eleicao, String nomeFantasia, int numero, String cpfEleitor){
+        for(Eleitor eleitor : buscarEleitor()){
+            if(eleitor.obterCPF().equals(cpfEleitor)){
+                return eleicao.adicionarCandidatura(nomeFantasia, numero, eleitor);
+            }
+        }
+        return 4;
     }
 
     /*

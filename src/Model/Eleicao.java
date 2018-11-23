@@ -42,9 +42,19 @@ public class Eleicao {
         return contador;
     }
 
-    public void adicionarCandidatura(String nomeFantasia, int numero, Eleitor eleitor){
+    public int adicionarCandidatura(String nomeFantasia, int numero, Eleitor eleitor){
+        for(Candidatura candidatura : candidaturaList){
+            if(candidatura.obterNomeFantasia().equals(nomeFantasia)){
+                return 1;
+            }else if(candidatura.obterNumeroCandidatura() == numero){
+                return 2;
+            }else if(candidatura.obterEleitor() == eleitor){
+                return 3;
+            }
+        }
         Candidatura candidatura = new Candidatura(nomeFantasia, numero, eleitor);
         candidaturaList.add(candidatura);
+        return 0;
     }
 
     public void registrarVoto(Eleitor eleitor, Candidatura candidatura){
