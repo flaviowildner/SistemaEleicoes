@@ -21,8 +21,8 @@ public class TelaEleicao extends View{
 
     private DefaultTableModel tmodel;
 
-    public TelaEleicao(Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
-        super(usuario, "Listar Candidatos");
+    public TelaEleicao( ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+        super( "Listar Candidatos");
         add(rootEleicao);
 
         nomeEleicao.setText(processoEleitoral.toString() + " - " + eleicao.toString());
@@ -39,7 +39,7 @@ public class TelaEleicao extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarEleicoes(usuario, processoEleitoral);
+                new TelaListarEleicoes(processoEleitoral);
                 dispose();
             }
         });
@@ -48,9 +48,9 @@ public class TelaEleicao extends View{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(usuario);
+                    new TelaInicialEleitor();
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(usuario);
+                    new TelaInicialAdministrador();
                 }
                 dispose();
             }
@@ -60,7 +60,7 @@ public class TelaEleicao extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaAdicionarCandidatura(usuario, processoEleitoral, eleicao);
+                new TelaAdicionarCandidatura( processoEleitoral, eleicao);
                 dispose();
             }
         });
@@ -70,9 +70,9 @@ public class TelaEleicao extends View{
                 @Override
                 public void valueChanged (ListSelectionEvent e) {
                     if(eleicao.eleitorJaVotou((Eleitor)usuario)){
-                        new TelaListarEleicoes(usuario, processoEleitoral);
+                        new TelaListarEleicoes(processoEleitoral);
                     }else{
-                        new TelaRegistrarVoto(usuario, processoEleitoral, eleicao, (Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
+                        new TelaRegistrarVoto( processoEleitoral, eleicao, (Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
                     }
                     dispose();
                 }
@@ -85,7 +85,7 @@ public class TelaEleicao extends View{
             candidatosTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged (ListSelectionEvent e) {
-                    new TelaCandidatura(usuario, processoEleitoral, eleicao, (Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
+                    new TelaCandidatura(processoEleitoral, eleicao, (Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
                     dispose();
                 }
             });
@@ -93,7 +93,7 @@ public class TelaEleicao extends View{
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
-                    new TelaAdicionarCandidatura(usuario, processoEleitoral, eleicao);
+                    new TelaAdicionarCandidatura(processoEleitoral, eleicao);
                     dispose();
                 }
             });
@@ -101,7 +101,7 @@ public class TelaEleicao extends View{
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
-                    new TelaResultado(usuario, processoEleitoral, eleicao);
+                    new TelaResultado(processoEleitoral, eleicao);
                     dispose();
                 }
             });

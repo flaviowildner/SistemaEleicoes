@@ -12,8 +12,8 @@ public class TelaInicialEleitor extends View{
     private JButton deslogarButton;
     private JPanel rootPanel;
 
-    public TelaInicialEleitor(Usuario usuario){
-        super(usuario, "Tela Inicial Eleitor");
+    public TelaInicialEleitor(){
+        super( "Tela Inicial Eleitor");
         initComponents();
 
         deslogarButton.addMouseListener(new MouseAdapter() {
@@ -27,8 +27,7 @@ public class TelaInicialEleitor extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(usuario);
-                dispose();
+                Sistema.listarProcessosEleitorais();
             }
         });
     }

@@ -22,8 +22,8 @@ public class TelaListarEleicoes extends View {
 
     private DefaultTableModel tmodel;
 
-    public TelaListarEleicoes(Usuario usuario, ProcessoEleitoral processoEleitoral){
-        super(usuario, "Listar Eleiçoes");
+    public TelaListarEleicoes(ProcessoEleitoral processoEleitoral){
+        super("Listar Eleiçoes");
         add(rootListarEleicoes);
 
         nomeLabel.setText(processoEleitoral.toString());
@@ -33,7 +33,7 @@ public class TelaListarEleicoes extends View {
 
         tmodel.setRowCount(0);
         if(usuario instanceof Eleitor){
-            for (Eleicao eleicao : processoEleitoral.buscarEleicoes()) {
+            for (Eleicao eleicao : Sistema.buscarEleicoes(processoEleitoral)) {
                 if(!eleicao.eleitorJaVotou((Eleitor)usuario)){
                     tmodel.addRow(new Object[] {eleicao});
                 }
@@ -59,7 +59,7 @@ public class TelaListarEleicoes extends View {
         eleicoesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaEleicao(usuario, processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
+                new TelaEleicao( processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
                 dispose();
             }
         });
@@ -68,7 +68,7 @@ public class TelaListarEleicoes extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(usuario);
+                new TelaListarProcessosEleitorais();
                 dispose();
             }
         });
@@ -78,9 +78,9 @@ public class TelaListarEleicoes extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(usuario);
+                    new TelaInicialEleitor();
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(usuario);
+                    new TelaInicialAdministrador();
                 }
                 dispose();
             }
@@ -89,14 +89,14 @@ public class TelaListarEleicoes extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.iniciarEleicoes(processoEleitoral);
+                Sistema.iniciarEleicoes();
             }
         });
         encerrarEleicoesButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.encerrarEleicoes(processoEleitoral);
+                Sistema.encerrarEleicoes();
             }
         });
     }

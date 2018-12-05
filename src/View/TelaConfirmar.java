@@ -11,8 +11,8 @@ public class TelaConfirmar extends View {
     private JButton simButton;
     private JButton naoButton;
 
-    public TelaConfirmar(Usuario usuario) {
-        super(usuario, "Confirmar Acao");
+    public TelaConfirmar() {
+        super("Confirmar Acao");
         add(rootConfirmar);
         simButton.addMouseListener(new MouseAdapter() {
             @Override

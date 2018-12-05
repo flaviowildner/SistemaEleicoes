@@ -19,8 +19,8 @@ public class TelaCadastroEleitor extends View{
     private JTextField secaoField;
     private JButton selecionarSecaoButton;
 
-    public TelaCadastroEleitor(Usuario usuario){
-        super(usuario, "Cadastro Eleitor");
+    public TelaCadastroEleitor(){
+        super( "Cadastro Eleitor");
         initComponents();
 
         cadastrarEleitorButton.addMouseListener(new MouseAdapter() {
@@ -62,7 +62,7 @@ public class TelaCadastroEleitor extends View{
                         }
                     }
                 });
-                View v = new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.SELECIONAR_SECAO);
+                View v = new TelaListarUnidadesFederativas( Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.SELECIONAR_SECAO);
                 v.useSession(session);
                 v.halt(TelaCadastroEleitor.this);
             }
@@ -70,7 +70,7 @@ public class TelaCadastroEleitor extends View{
     }
 
     private void voltarTelaInicialAdministrador(){
-        new TelaInicialAdministrador(usuario);
+        new TelaInicialAdministrador();
         dispose();
     }
 

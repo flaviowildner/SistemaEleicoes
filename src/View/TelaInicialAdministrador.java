@@ -15,8 +15,8 @@ public class TelaInicialAdministrador extends View{
     private JButton listarUfsButton;
     private JButton listarProcessosEleitoraisButton;
 
-    public TelaInicialAdministrador(Usuario usuario) {
-        super(usuario, "Tela Inicial Administrador");
+    public TelaInicialAdministrador() {
+        super( "Tela Inicial Administrador");
         initComponents();
 
         cadastrarAdministradorButton.addMouseListener(new MouseAdapter() {
@@ -46,16 +46,14 @@ public class TelaInicialAdministrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(usuario, Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.NADA);
-                dispose();
+                Sistema.listarUnidadesFederativas();
             }
         });
         listarProcessosEleitoraisButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(usuario);
-                dispose();
+                Sistema.listarProcessosEleitorais();
             }
         });
     }
@@ -65,12 +63,12 @@ public class TelaInicialAdministrador extends View{
     }
 
     private void solicitarCadastroEleitor(){
-        new TelaCadastroEleitor(usuario);
+        new TelaCadastroEleitor();
         dispose();
     }
 
     private void solicitarCadastroAdministrador(){
-        new TelaCadastroAdmistrador(usuario);
+        new TelaCadastroAdmistrador();
         dispose();
     }
 
