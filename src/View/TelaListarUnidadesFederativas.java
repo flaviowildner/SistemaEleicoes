@@ -30,8 +30,8 @@ public class TelaListarUnidadesFederativas extends View {
         NADA, SELECIONAR_UF, SELECIONAR_ESTADO, SELECIONAR_MUNICIPIO, SELECIONAR_ZONAELEITORAL, SELECIONAR_SECAO
     }
 
-    public TelaListarUnidadesFederativas(UF uf, Operacao operacao) {
-        super("Unidade Federativa");
+    public TelaListarUnidadesFederativas(Usuario usuario, UF uf, Operacao operacao) {
+        super(usuario, "Unidade Federativa");
         add(rootListarUfs);
 
         tmodel = (DefaultTableModel)this.unidadesFederativasTable.getModel();
@@ -46,7 +46,7 @@ public class TelaListarUnidadesFederativas extends View {
                         selection instanceof ZonaEleitoral && operacao == Operacao.SELECIONAR_ZONAELEITORAL ||
                         selection instanceof Secao && operacao == Operacao.SELECIONAR_SECAO
                     ) {
-                    View v = new TelaConfirmar();
+                    View v = new TelaConfirmar(usuario);
                     useSession();
                     v.useSession(session);
                     onResume(() -> {
@@ -68,7 +68,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaInicialAdministrador();
+                new TelaInicialAdministrador(usuario);
                 dispose();
             }
         });
@@ -77,11 +77,11 @@ public class TelaListarUnidadesFederativas extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (currentUf.getFather() != null) {
-                    refresh(currentUf.getFather());
+                    new TelaListarUnidadesFederativas(usuario, currentUf.getFather(), operacao);
                 } else {
-                    new TelaInicialAdministrador();
-                    dispose();
+                    new TelaInicialAdministrador(usuario);
                 }
+                dispose();
             }
         });
 
@@ -89,7 +89,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarZonaEleitoral( (Municipio)currentUf, operacao);
+                new TelaCadastrarZonaEleitoral(usuario, (Municipio)currentUf, operacao);
                 dispose();
             }
         });
@@ -98,7 +98,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarEstado( operacao);
+                new TelaCadastrarEstado(usuario, operacao);
                 dispose();
             }
         });
@@ -107,7 +107,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarMunicipio( (Estado)currentUf, operacao);
+                new TelaCadastrarMunicipio(usuario, (Estado)currentUf, operacao);
                 dispose();
             }
         });
@@ -116,7 +116,7 @@ public class TelaListarUnidadesFederativas extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaCadastrarSecao( (ZonaEleitoral)currentUf, operacao);
+                new TelaCadastrarSecao(usuario, (ZonaEleitoral)currentUf, operacao);
                 dispose();
             }
         });
@@ -150,17 +150,24 @@ public class TelaListarUnidadesFederativas extends View {
         nomeLabel.setText(this.currentUf.toString());
         this.reloadList();
 
-        novaZonaEleitoralButton.setVisible(currentUf instanceof Municipio);
-        novaZonaEleitoralButton.getParent().revalidate();
+        if (!(currentUf instanceof Municipio)) {
+            novaZonaEleitoralButton.setVisible(false);
+            novaZonaEleitoralButton.getParent().revalidate();
+        }
 
-        novaSecaoButton.setVisible(currentUf instanceof ZonaEleitoral);
-        novaSecaoButton.getParent().revalidate();
+        if (!(currentUf instanceof ZonaEleitoral)) {
+            novaSecaoButton.setVisible(false);
+            novaSecaoButton.getParent().revalidate();
+        }
 
-        novoEstadoButton.setVisible(currentUf instanceof Pais);
-        novoEstadoButton.getParent().revalidate();
+        if (!(currentUf instanceof Pais)) {
+            novoEstadoButton.setVisible(false);
+            novoEstadoButton.getParent().revalidate();
+        }
 
-        novoMunicipioButton.setVisible(currentUf instanceof Estado);
-        novoMunicipioButton.getParent().revalidate();
-
+        if (!(currentUf instanceof Estado)) {
+            novoMunicipioButton.setVisible(false);
+            novoMunicipioButton.getParent().revalidate();
+        }
     }
 }
