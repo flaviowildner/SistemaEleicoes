@@ -10,8 +10,7 @@ public class ControladorProcessoEleitoral {
     private ProcessoEleitoral _processo;
 
     public void criarProcessoEleitoral(String nome){
-        ProcessoEleitoral processoEleitoral = new ProcessoEleitoral(nome);
-        Database.processosEleitorais().add(processoEleitoral);
+        Database.processosEleitorais().add(new ProcessoEleitoral(nome));
     }
 
     public List<ProcessoEleitoral> listarProcessosEleitorais(){

@@ -56,6 +56,15 @@ public class TelaListarProcessosEleitorais extends View{
             }
         });
 
+        novoProcessoEleitoralButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaCriarProcessoEleitoral();
+                dispose();
+            }
+        });
+
         if(usuario instanceof Eleitor){
             novoProcessoEleitoralButton.setVisible(false);
             novoProcessoEleitoralButton.getParent().revalidate();
