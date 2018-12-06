@@ -1,14 +1,11 @@
 package View;
 
-import Controller.Sistema;
 import Model.Candidatura;
 import Model.Eleicao;
 import Model.ProcessoEleitoral;
-import Model.Usuario;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

@@ -1,6 +1,5 @@
 package View;
 
-import Controller.Sistema;
 import Model.*;
 
 import javax.swing.*;

@@ -1,6 +1,5 @@
 package View;
 
-import Controller.Sistema;
 import Model.Usuario;
 
 import javax.swing.*;

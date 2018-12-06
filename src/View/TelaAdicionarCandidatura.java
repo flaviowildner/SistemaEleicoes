@@ -1,10 +1,9 @@
 package View;
 
-import Controller.Sistema;
+import Controller.ControladorCandidatura;
 import Model.Eleicao;
-import Model.Eleitor;
 import Model.ProcessoEleitoral;
-import Model.Usuario;
+import Model.SistemaEleicaoException;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -18,28 +17,24 @@ public class TelaAdicionarCandidatura extends View {
     private JButton cancelarButton;
     private JPanel rootAdicionarCandidatura;
     private JLabel errorMessageLabel;
+    private ControladorCandidatura controlador;
 
-    public TelaAdicionarCandidatura( ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+    public TelaAdicionarCandidatura(ProcessoEleitoral processoEleitoral, Eleicao eleicao){
         super("Adicionar Candidatura - " + eleicao.toString());
         add(rootAdicionarCandidatura);
+
+        this.controlador = new ControladorCandidatura();
 
         okButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                int status = Sistema.adicionarCandidatura(nomeFantasiaField.getText(), Integer.parseInt(numeroField.getText()), cpfField.getText());
-                if(status == 1){
-                    setMessageError("Nome Fantasia já existe");
-                }else if(status == 2){
-                    setMessageError("Numero de candidatura já existe");
-                }else if(status == 3){
-                    setMessageError("O eleitor já possui uma candidatura nessa eleição");
-                }else if(status == 4){
-                    setMessageError("Não existe um eleitor com este CPF");
+                try {
+                    controlador.adicionarCandidatura(eleicao, nomeFantasiaField.getText(), Integer.parseInt(numeroField.getText()), cpfField.getText());
+                } catch (SistemaEleicaoException ex) {
+                    setMessageError(ex.getMessage());
                 }
-                else if(status == 0){
-                    dispose();
-                }
+                dispose();
             }
         });
 

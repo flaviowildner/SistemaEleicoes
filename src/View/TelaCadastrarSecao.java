@@ -1,8 +1,6 @@
 package View;
 
-import Controller.Sistema;
-import Model.UF;
-import Model.Usuario;
+import Controller.Database;
 import Model.ZonaEleitoral;
 
 import javax.swing.*;
@@ -26,7 +24,7 @@ public class TelaCadastrarSecao extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.criarSecao(Integer.parseInt(numeroText.getText()), uf);
+                Database.criarSecao(Integer.parseInt(numeroText.getText()), uf);
                 new TelaListarUnidadesFederativas(uf, operacao);
                 dispose();
             }

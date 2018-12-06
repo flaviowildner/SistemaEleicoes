@@ -1,7 +1,7 @@
-import Controller.Sistema;
+import Controller.Database;
 
 public class Main {
     public static void main(String[] args) {
-        Sistema.inicializar();
+        Database.inicializar();
     }
 }

@@ -1,8 +1,6 @@
 package View;
 
-import Controller.Sistema;
-import Model.UF;
-import Model.Usuario;
+import Controller.Database;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -23,8 +21,8 @@ public class TelaCadastrarEstado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.criarEstado(nomeText.getText());
-                new TelaListarUnidadesFederativas(Sistema.brasil(), operacao);
+                Database.criarEstado(nomeText.getText());
+                new TelaListarUnidadesFederativas(Database.brasil(), operacao);
                 dispose();
             }
         });
@@ -33,7 +31,7 @@ public class TelaCadastrarEstado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(Sistema.brasil(), operacao);
+                new TelaListarUnidadesFederativas(Database.brasil(), operacao);
                 dispose();
             }
         });

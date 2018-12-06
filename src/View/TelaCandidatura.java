@@ -1,10 +1,8 @@
 package View;
 
-import Controller.Sistema;
 import Model.Candidatura;
 import Model.Eleicao;
 import Model.ProcessoEleitoral;
-import Model.Usuario;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;

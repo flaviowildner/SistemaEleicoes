@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Sistema;
+import Controller.Database;
 import Model.*;
 
 import javax.swing.*;
@@ -26,14 +26,14 @@ public class TelaListarProcessosEleitorais extends View{
         tmodel.addColumn("Sub");
 
         tmodel.setRowCount(0);
-        for (ProcessoEleitoral pe : Sistema.buscarProcessosEleitorais()) {
+        for (ProcessoEleitoral pe : Database.buscarProcessosEleitorais()) {
             tmodel.addRow(new Object[] {pe});
         }
 
         processosEleitoraisTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                Sistema.listarEleicoes((ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(),0));
+                Database.listarEleicoes((ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(),0));
             }
         });
 

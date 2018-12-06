@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Sistema;
+import Controller.Database;
 import Model.*;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ public class TelaRegistrarVoto extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.registrarVoto();
+                Database.registrarVoto();
             }
         });
     }

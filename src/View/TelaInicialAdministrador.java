@@ -1,7 +1,6 @@
 package View;
 
-import Controller.Sistema;
-import Model.Usuario;
+import Controller.Database;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -46,14 +45,14 @@ public class TelaInicialAdministrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.listarUnidadesFederativas();
+                Database.listarUnidadesFederativas();
             }
         });
         listarProcessosEleitoraisButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.listarProcessosEleitorais();
+                Database.listarProcessosEleitorais();
             }
         });
     }

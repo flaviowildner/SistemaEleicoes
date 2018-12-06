@@ -1,9 +1,7 @@
 package View;
 
-import Controller.Sistema;
+import Controller.Database;
 import Model.Municipio;
-import Model.UF;
-import Model.Usuario;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -27,7 +25,7 @@ public class TelaCadastrarZonaEleitoral extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText(), uf);
+                Database.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText(), uf);
                 new TelaListarUnidadesFederativas( uf, operacao);
                 dispose();
             }

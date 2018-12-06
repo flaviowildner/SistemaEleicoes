@@ -1,15 +1,11 @@
 package View;
 
-import Controller.Sistema;
 import Model.*;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.HashMap;
 
 public class TelaListarUnidadesFederativas extends View {
     private JTable unidadesFederativasTable;

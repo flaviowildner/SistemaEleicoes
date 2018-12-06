@@ -42,19 +42,18 @@ public class Eleicao {
         return contador;
     }
 
-    public int adicionarCandidatura(String nomeFantasia, int numero, Eleitor eleitor){
+    public void adicionarCandidatura(String nomeFantasia, int numero, Eleitor eleitor) throws SistemaEleicaoException {
         for(Candidatura candidatura : candidaturaList){
             if(candidatura.obterNomeFantasia().equals(nomeFantasia)){
-                return 1;
+                throw new SistemaEleicaoException("Ja existe candidatura com nome fantasia escolhido");
             }else if(candidatura.obterNumeroCandidatura() == numero){
-                return 2;
+                throw new SistemaEleicaoException("Ja existe candidatura com numero escolhido");
             }else if(candidatura.obterEleitor() == eleitor){
-                return 3;
+                throw new SistemaEleicaoException("Ja existe candidatura com eleitor escolhido");
             }
         }
         Candidatura candidatura = new Candidatura(nomeFantasia, numero, eleitor);
         candidaturaList.add(candidatura);
-        return 0;
     }
 
     public void registrarVoto(Eleitor eleitor, Candidatura candidatura){

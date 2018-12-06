@@ -1,7 +1,6 @@
 package View;
 
-import Controller.Sistema;
-import Model.Usuario;
+import Controller.Database;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -23,7 +22,7 @@ public class TelaCadastroAdmistrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-            Sistema.criarAdministrador(loginField.getText(), new String(passwordField.getPassword()));
+            Database.criarAdministrador(loginField.getText(), new String(passwordField.getPassword()));
             voltarTelaInicialAdministrador();
             }
         });

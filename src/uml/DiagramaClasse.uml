@@ -3,7 +3,7 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="0.0" y="438.0">Controller.Sistema</node>
+    <node x="0.0" y="438.0">Controller.Database</node>
     <node x="0.0" y="112.0">Model.Estado</node>
     <node x="182.0" y="0.0">Model.UF</node>
     <node x="496.0" y="764.0">Model.Cargo</node>

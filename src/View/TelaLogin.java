@@ -1,12 +1,8 @@
 package View;
 
-import Controller.Sistema;
-import Model.Administrador;
-import Model.Eleitor;
-import Model.Usuario;
+import Controller.Database;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -28,7 +24,7 @@ public class TelaLogin extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(Sistema.logar(loginField.getText(), new String(passwordField.getPassword())) == null){
+                if(Database.logar(loginField.getText(), new String(passwordField.getPassword())) == null){
                     setMessageError("Login ou senha incorreta");
                     return;
                 }

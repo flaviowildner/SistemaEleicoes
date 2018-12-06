@@ -1,9 +1,7 @@
 package View;
 
-import Controller.Sistema;
+import Controller.Database;
 import Model.Estado;
-import Model.UF;
-import Model.Usuario;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -24,7 +22,7 @@ public class TelaCadastrarMunicipio extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.criarMunicipio(nomeText.getText(), estado);
+                Database.criarMunicipio(nomeText.getText(), estado);
                 new TelaListarUnidadesFederativas(estado, operacao);
                 dispose();
             }

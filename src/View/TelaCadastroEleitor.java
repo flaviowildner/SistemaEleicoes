@@ -1,12 +1,11 @@
 package View;
 
-import Controller.Sistema;
+import Controller.Database;
 import Model.*;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.HashMap;
 
 public class TelaCadastroEleitor extends View{
     private JTextField loginField;
@@ -32,7 +31,7 @@ public class TelaCadastroEleitor extends View{
                     secao = (Secao)session.get("uf");
                 }
                 if (secao != null) {
-                    Sistema.criarEleitor(loginField.getText(), new String(passwordField.getPassword()), cpfField.getText(), nomeField.getText(), secao);
+                    Database.criarEleitor(loginField.getText(), new String(passwordField.getPassword()), cpfField.getText(), nomeField.getText(), secao);
                     voltarTelaInicialAdministrador();
                 }
 
@@ -62,7 +61,7 @@ public class TelaCadastroEleitor extends View{
                         }
                     }
                 });
-                View v = new TelaListarUnidadesFederativas( Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.SELECIONAR_SECAO);
+                View v = new TelaListarUnidadesFederativas( Database.brasil(), TelaListarUnidadesFederativas.Operacao.SELECIONAR_SECAO);
                 v.useSession(session);
                 v.halt(TelaCadastroEleitor.this);
             }
