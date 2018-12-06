@@ -19,6 +19,8 @@ public class TelaEleicao extends View{
     private JButton inicioButton;
     private JButton voltarButton;
     private JButton exibirResultadoButton;
+    private JButton votoNuloButton;
+    private JButton votoBrancoButton;
     private ControladorEleicao controlador;
 
     private DefaultTableModel tmodel;
@@ -102,5 +104,28 @@ public class TelaEleicao extends View{
             exibirResultadoButton.setVisible(false);
             exibirResultadoButton.getParent().revalidate();
         }
+        votoNuloButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                controlador.registrarVotoInvalido(TipoVotoInvalido.NULO);
+                ControladorProcessoEleitoral c = new ControladorProcessoEleitoral();
+                c.setProcesso(controlador.processo());
+                new TelaListarEleicoes(c);
+                dispose();
+            }
+        });
+
+        votoBrancoButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                controlador.registrarVotoInvalido(TipoVotoInvalido.BRANCO);
+                ControladorProcessoEleitoral c = new ControladorProcessoEleitoral();
+                c.setProcesso(controlador.processo());
+                new TelaListarEleicoes(c);
+                dispose();
+            }
+        });
     }
 }

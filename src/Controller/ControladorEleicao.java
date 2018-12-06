@@ -35,6 +35,11 @@ public class ControladorEleicao {
         _eleicao.registrarVoto((Eleitor) Database.usuarioLogado(), _candidatura);
     }
 
+    public void registrarVotoInvalido(TipoVotoInvalido tipoVotoInvalido){
+        _eleicao.registrarVotoInvalido((Eleitor) Database.usuarioLogado(), tipoVotoInvalido);
+    }
+
+
     public List<Candidatura> listarCandidaturas(){
         return _eleicao.buscarCandidaturas();
     }
