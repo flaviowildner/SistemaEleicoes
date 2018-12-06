@@ -39,6 +39,14 @@ public class ControladorEleicao {
         return _eleicao.buscarCandidaturas();
     }
 
+    public int obterNumeroVotosNulos(){
+        return _eleicao.contabilizarVotosNulos();
+    }
+
+    public int obterNumeroVotosBrancos(){
+        return _eleicao.contabilizarVotosBrancos();
+    }
+
     public void adicionarCandidatura(String nomeFantasia, int numero, String cpfEleitor) throws SistemaEleicaoException {
         for(Usuario usuario : Database.usuarios()) {
             if (usuario instanceof Eleitor) {

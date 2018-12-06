@@ -30,7 +30,9 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font size="16"/>
+        </properties>
       </component>
     </children>
   </grid>

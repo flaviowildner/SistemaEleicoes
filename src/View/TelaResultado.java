@@ -32,6 +32,8 @@ public class TelaResultado extends View {
         for (Candidatura candidatura : controlador.listarCandidaturas()) {
             tmodel.addRow(new Object[] {candidatura.obterNomeFantasia(), String.valueOf(candidatura.obterNumeroCandidatura()), String.valueOf(candidatura.numeroVotos())});
         }
+        tmodel.addRow(new Object[] {"Nulos", "-", controlador.obterNumeroVotosNulos()});
+        tmodel.addRow(new Object[] {"Brancos", "-", controlador.obterNumeroVotosBrancos()});
 
         voltarButton.addMouseListener(new MouseAdapter() {
             @Override

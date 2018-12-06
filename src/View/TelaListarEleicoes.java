@@ -106,5 +106,13 @@ public class TelaListarEleicoes extends View {
                 controlador.encerrarEleicoes();
             }
         });
+        novaEleicaoButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaCadastrarEleicao(controlador);
+                dispose();
+            }
+        });
     }
 }
