@@ -18,8 +18,8 @@ public class TelaCandidatura extends View {
     private JLabel numeroField;
     private JLabel qntVotosField;
 
-    public TelaCandidatura(Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao, Candidatura candidatura){
-        super(usuario, "Informações da Candidatura");
+    public TelaCandidatura( ProcessoEleitoral processoEleitoral, Eleicao eleicao, Candidatura candidatura){
+        super( "Informações da Candidatura");
         add(rootCandidatura);
 
         nomeFantasiaField.setText(candidatura.obterNomeFantasia());
@@ -31,7 +31,7 @@ public class TelaCandidatura extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao(usuario, processoEleitoral, eleicao);
+                new TelaEleicao( processoEleitoral, eleicao);
                 dispose();
             }
         });
@@ -39,7 +39,7 @@ public class TelaCandidatura extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaInicialAdministrador(usuario);
+                new TelaInicialAdministrador();
                 dispose();
             }
         });

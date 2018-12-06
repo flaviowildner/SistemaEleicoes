@@ -11,7 +11,7 @@ public class View extends JFrame {
     private Runnable resumeFunction;
     private View halted;
 
-    public View(Usuario usuario, String title){
+    public View(String title){
         this.usuario = usuario;
         configView(title);
     }

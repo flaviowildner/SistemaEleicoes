@@ -19,15 +19,15 @@ public class TelaAdicionarCandidatura extends View {
     private JPanel rootAdicionarCandidatura;
     private JLabel errorMessageLabel;
 
-    public TelaAdicionarCandidatura(Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao){
-        super(usuario, "Adicionar Candidatura - " + eleicao.toString());
+    public TelaAdicionarCandidatura( ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+        super("Adicionar Candidatura - " + eleicao.toString());
         add(rootAdicionarCandidatura);
 
         okButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                int status = Sistema.adicionarCandidatura(eleicao, nomeFantasiaField.getText(), Integer.parseInt(numeroField.getText()), cpfField.getText());
+                int status = Sistema.adicionarCandidatura(nomeFantasiaField.getText(), Integer.parseInt(numeroField.getText()), cpfField.getText());
                 if(status == 1){
                     setMessageError("Nome Fantasia já existe");
                 }else if(status == 2){
@@ -38,7 +38,6 @@ public class TelaAdicionarCandidatura extends View {
                     setMessageError("Não existe um eleitor com este CPF");
                 }
                 else if(status == 0){
-                    new TelaEleicao(usuario, processoEleitoral, eleicao);
                     dispose();
                 }
             }
@@ -49,7 +48,7 @@ public class TelaAdicionarCandidatura extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao(usuario, processoEleitoral, eleicao);
+                new TelaEleicao(processoEleitoral, eleicao);
                 dispose();
             }
         });

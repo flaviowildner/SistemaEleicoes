@@ -15,8 +15,8 @@ public class TelaRegistrarVoto extends View {
     private JLabel numeroLabel;
     private JPanel rootRegistrarVoto;
 
-    public TelaRegistrarVoto(Usuario usuario, ProcessoEleitoral processoEleitoral, Eleicao eleicao, Candidatura candidatura){
-        super(usuario, "Registrar Voto");
+    public TelaRegistrarVoto(ProcessoEleitoral processoEleitoral, Eleicao eleicao, Candidatura candidatura){
+        super( "Registrar Voto");
         add(rootRegistrarVoto);
 
         nomeFantasiaLabel.setText(candidatura.obterNomeFantasia());
@@ -26,7 +26,7 @@ public class TelaRegistrarVoto extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao(usuario, processoEleitoral, eleicao);
+                new TelaEleicao( processoEleitoral, eleicao);
                 dispose();
             }
         });
@@ -34,9 +34,7 @@ public class TelaRegistrarVoto extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Sistema.registrarVoto((Eleitor)usuario, eleicao, candidatura);
-                new TelaListarProcessosEleitorais(usuario);
-                dispose();
+                Sistema.registrarVoto();
             }
         });
     }

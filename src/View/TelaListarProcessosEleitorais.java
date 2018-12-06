@@ -18,8 +18,8 @@ public class TelaListarProcessosEleitorais extends View{
 
     private DefaultTableModel tmodel;
 
-    public TelaListarProcessosEleitorais(Usuario usuario){
-        super(usuario, "Listar Processos Eleitorais");
+    public TelaListarProcessosEleitorais(){
+        super( "Listar Processos Eleitorais");
         add(rootPE);
 
         tmodel = (DefaultTableModel)this.processosEleitoraisTable.getModel();
@@ -33,8 +33,7 @@ public class TelaListarProcessosEleitorais extends View{
         processosEleitoraisTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaListarEleicoes(usuario, (ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(), 0));
-                dispose();
+                Sistema.listarEleicoes((ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(),0));
             }
         });
 
@@ -43,9 +42,9 @@ public class TelaListarProcessosEleitorais extends View{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(usuario);
+                    new TelaInicialEleitor();
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(usuario);
+                    new TelaInicialAdministrador();
                 }
                 dispose();
             }
@@ -60,7 +59,7 @@ public class TelaListarProcessosEleitorais extends View{
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
                     //new TelaCadastrarProcessoEleitoral(usuario);
-                    dispose();
+                    //dispose();
                 }
             });
         }

@@ -15,8 +15,8 @@ public class TelaCadastroAdmistrador extends View{
     private JButton cadastrarButton;
     private JButton voltar;
 
-    public TelaCadastroAdmistrador(Usuario usuario){
-        super(usuario, "Cadastro Administrador");
+    public TelaCadastroAdmistrador(){
+        super( "Cadastro Administrador");
         initComponents();
 
         cadastrarButton.addMouseListener(new MouseAdapter() {
@@ -38,7 +38,7 @@ public class TelaCadastroAdmistrador extends View{
     }
 
     private void voltarTelaInicialAdministrador(){
-        new TelaInicialAdministrador(usuario);
+        new TelaInicialAdministrador();
         dispose();
     }
 

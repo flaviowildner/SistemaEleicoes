@@ -18,8 +18,8 @@ public class TelaCadastrarSecao extends View {
     private JButton OKButton;
     private JButton cancelarButton;
 
-    public TelaCadastrarSecao (Usuario usuario, ZonaEleitoral uf, Operacao operacao) {
-        super(usuario, "Cadastrar Secao");
+    public TelaCadastrarSecao ( ZonaEleitoral uf, Operacao operacao) {
+        super("Cadastrar Secao");
         add(rootCadastrarSecao);
 
         OKButton.addMouseListener(new MouseAdapter() {
@@ -27,7 +27,7 @@ public class TelaCadastrarSecao extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Sistema.criarSecao(Integer.parseInt(numeroText.getText()), uf);
-                new TelaListarUnidadesFederativas(usuario, uf, operacao);
+                new TelaListarUnidadesFederativas(uf, operacao);
                 dispose();
             }
         });
@@ -35,7 +35,7 @@ public class TelaCadastrarSecao extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(usuario, uf, operacao);
+                new TelaListarUnidadesFederativas(uf, operacao);
                 dispose();
             }
         });

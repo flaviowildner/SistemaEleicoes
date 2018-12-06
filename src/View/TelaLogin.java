@@ -21,25 +21,17 @@ public class TelaLogin extends View {
     private JLabel loginMessage;
 
     public TelaLogin(){
-        super(null, "Login");
+        super( "Login");
         initComponents();
 
         loginButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Usuario usuario;
-                usuario = Sistema.logar(loginField.getText(), new String(passwordField.getPassword()));
-                if(usuario == null){
+                if(Sistema.logar(loginField.getText(), new String(passwordField.getPassword())) == null){
                     setMessageError("Login ou senha incorreta");
                     return;
                 }
-                if(Administrador.class.isInstance(usuario)){
-                    new TelaInicialAdministrador(usuario);
-                }else if(Eleitor.class.isInstance(usuario)){
-                    new TelaInicialEleitor(usuario);
-                }
-                dispose();
             }
         });
     }

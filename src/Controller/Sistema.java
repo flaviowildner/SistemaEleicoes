@@ -1,7 +1,7 @@
 package Controller;
 
 import Model.*;
-import View.TelaLogin;
+import View.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +11,17 @@ public class Sistema {
     private static List<ProcessoEleitoral> _processosEleitorais = null;
     private static List<Cargo> _cargos = null;
     private static Pais _brasil = null;
+    private static Usuario usuarioLogado = null;
+    private static View telaAtual = null;
+    private static ProcessoEleitoral processoEleitoral = null;
+    private static Eleicao eleicao = null;
+    private static Eleitor eleitor = null;
+    private static Candidatura candidatura = null;
 
     public static void inicializar () {
-
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
-
+        telaAtual = telaLogin;
     }
 
     public static List<Usuario> usuarios() {
@@ -46,7 +51,7 @@ public class Sistema {
             processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor)usuarios().get(1));
             processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarios().get(2));
             criarProcessoEleitoral("Eleicoes 2020");
-            iniciarEleicoes(processosEleitorais().get(0));
+            iniciarEleicoes();
         }
         return _processosEleitorais;
     }
@@ -70,6 +75,11 @@ public class Sistema {
         for(Usuario usuario : usuarios()){
             if(usuario.getLogin().equals(login)){
                 if(usuario.autenticar(senha)){
+                    if(Administrador.class.isInstance(usuario)){
+                        setTela(new TelaInicialAdministrador());
+                    }else if(Eleitor.class.isInstance(usuario)){
+                        setTela(new TelaInicialEleitor());
+                    }
                     return usuario;
                 }
             }
@@ -100,6 +110,18 @@ public class Sistema {
 
     public static List<ProcessoEleitoral> buscarProcessosEleitorais(){
         return processosEleitorais();
+    }
+
+    public static void listarProcessosEleitorais(){
+        setTela(new TelaListarProcessosEleitorais());
+    }
+
+    public static void listarEleicoes(ProcessoEleitoral processoEleitoral){
+        setTela(new TelaListarEleicoes(processoEleitoral));
+    }
+
+    public static void listarUnidadesFederativas(){
+        setTela(new TelaListarUnidadesFederativas(Sistema.brasil(), TelaListarUnidadesFederativas.Operacao.NADA));
     }
 
     public static List<Eleicao> buscarEleicoes(ProcessoEleitoral processoEleitoral){
@@ -143,9 +165,10 @@ public class Sistema {
         _cargos.add(cargo);
     }
 
-    public static int adicionarCandidatura(Eleicao eleicao, String nomeFantasia, int numero, String cpfEleitor){
+    public static int adicionarCandidatura(String nomeFantasia, int numero, String cpfEleitor){
         for(Eleitor eleitor : buscarEleitor()){
             if(eleitor.obterCPF().equals(cpfEleitor)){
+                setTela(new TelaEleicao(processoEleitoral, eleicao));
                 return eleicao.adicionarCandidatura(nomeFantasia, numero, eleitor);
             }
         }
@@ -156,20 +179,17 @@ public class Sistema {
         brasil().criarEstado(nome);
     }
 
-    public static int registrarVoto(Eleitor eleitor, Eleicao eleicao, Candidatura candidatura){
-        if(!eleicao.eleitorJaVotou(eleitor)) {
-            eleicao.registrarVoto(eleitor, candidatura);
-            return 0;
-        }else{
-            return 1;
+    public static void registrarVoto(){
+        eleicao.registrarVoto((Eleitor) usuarioLogado, candidatura);
+    }
+
+    public static void iniciarEleicoes(){
+        if(processoEleitoral != null){
+            processoEleitoral.iniciarEleicoes();
         }
     }
 
-    public static void iniciarEleicoes(ProcessoEleitoral processoEleitoral){
-        processoEleitoral.iniciarEleicoes();
-    }
-
-    public static void encerrarEleicoes(ProcessoEleitoral processoEleitoral){
+    public static void encerrarEleicoes(){
         processoEleitoral.encerrarEleicoes();
     }
 
@@ -187,5 +207,10 @@ public class Sistema {
 
     public static void transferirSecaoEleitor(Eleitor eleitor, Secao secao){
         ((Eleitor)usuarios().get(usuarios().indexOf(eleitor))).alterarSecao(secao);
+    }
+
+    public static void setTela(View view){
+        telaAtual.dispose();
+        telaAtual = view;
     }
 }
