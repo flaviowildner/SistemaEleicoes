@@ -1,5 +1,7 @@
 package View;
 
+import Controller.ControladorEleicao;
+import Controller.ControladorProcessoEleitoral;
 import Model.*;
 
 import javax.swing.*;
@@ -18,21 +20,24 @@ public class TelaListarEleicoes extends View {
     private JLabel nomeLabel;
     private JButton iniciarEleicoesButton;
     private JButton encerrarEleicoesButton;
+    private ControladorProcessoEleitoral controlador;
 
     private DefaultTableModel tmodel;
 
-    public TelaListarEleicoes(Usuario usuario, ProcessoEleitoral processoEleitoral){
-        super(usuario, "Listar Eleiçoes");
+    public TelaListarEleicoes(ControladorProcessoEleitoral refControlador){
+        super("Listar Eleiçoes");
         add(rootListarEleicoes);
 
-        nomeLabel.setText(processoEleitoral.toString());
+        controlador = refControlador;
+
+        nomeLabel.setText(controlador.processo().toString());
 
         tmodel = (DefaultTableModel)this.eleicoesTable.getModel();
         tmodel.addColumn("Sub");
 
         tmodel.setRowCount(0);
         if(usuario instanceof Eleitor){
-            for (Eleicao eleicao : processoEleitoral.buscarEleicoes()) {
+            for (Eleicao eleicao : controlador.listarEleicoes()) {
                 if(!eleicao.eleitorJaVotou((Eleitor)usuario)){
                     tmodel.addRow(new Object[] {eleicao});
                 }
@@ -44,7 +49,7 @@ public class TelaListarEleicoes extends View {
             encerrarEleicoesButton.setVisible(false);
             encerrarEleicoesButton.getParent().revalidate();
         }else {
-            for (Eleicao eleicao : processoEleitoral.buscarEleicoes()) {
+            for (Eleicao eleicao : controlador.listarEleicoes()) {
                 tmodel.addRow(new Object[] {eleicao});
             }
             novaEleicaoButton.addMouseListener(new MouseAdapter() {
@@ -58,7 +63,10 @@ public class TelaListarEleicoes extends View {
         eleicoesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                new TelaEleicao(usuario, processoEleitoral, (Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
+                ControladorEleicao c = new ControladorEleicao();
+                c.setEleicao((Eleicao) tmodel.getValueAt(eleicoesTable.getSelectedRow(), 0));
+                c.setProcesso(controlador.processo());
+                new TelaEleicao(c);
                 dispose();
             }
         });
@@ -67,7 +75,7 @@ public class TelaListarEleicoes extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarProcessosEleitorais(usuario);
+                new TelaListarProcessosEleitorais();
                 dispose();
             }
         });
@@ -77,9 +85,9 @@ public class TelaListarEleicoes extends View {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(usuario instanceof Eleitor){
-                    new TelaInicialEleitor(usuario);
+                    new TelaInicialEleitor();
                 }else if(usuario instanceof Administrador){
-                    new TelaInicialAdministrador(usuario);
+                    new TelaInicialAdministrador();
                 }
                 dispose();
             }
@@ -88,14 +96,14 @@ public class TelaListarEleicoes extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.iniciarEleicoes(processoEleitoral);
+                controlador.iniciarEleicoes();
             }
         });
         encerrarEleicoesButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                sistema.encerrarEleicoes(processoEleitoral);
+                controlador.encerrarEleicoes();
             }
         });
     }

@@ -17,9 +17,9 @@ public class Database {
         if (_usuarios == null) {
             _usuarios = new ArrayList<Usuario>();
             _usuarios.add(new Administrador("admin", "admin"));
-            _usuarios.add(new Eleitor("fulano", "123", "123456789", "Fulano", brasil().getEstados().get(0).getMunicipios().get(0).getZonasEleitorais().get(0).getSecoes().get(0)));
-            _usuarios.add(new Eleitor("ciclano", "123", "123456789", "Ciclano", brasil().getEstados().get(0).getMunicipios().get(0).getZonasEleitorais().get(0).getSecoes().get(0)));
-            _usuarios.add(new Eleitor("beltrano", "123", "123456789", "Beltrano", brasil().getEstados().get(0).getMunicipios().get(0).getZonasEleitorais().get(0).getSecoes().get(0)));
+            _usuarios.add(new Eleitor("fulano", "123", "123", "Fulano", brasil().getEstados().get(0).getMunicipios().get(0).getZonasEleitorais().get(0).getSecoes().get(0)));
+            _usuarios.add(new Eleitor("ciclano", "123", "456", "Ciclano", brasil().getEstados().get(0).getMunicipios().get(0).getZonasEleitorais().get(0).getSecoes().get(0)));
+            _usuarios.add(new Eleitor("beltrano", "123", "789", "Beltrano", brasil().getEstados().get(0).getMunicipios().get(0).getZonasEleitorais().get(0).getSecoes().get(0)));
         }
         return _usuarios;
     }
@@ -37,8 +37,12 @@ public class Database {
             _processosEleitorais = new ArrayList<ProcessoEleitoral>();
             _processosEleitorais.add(new ProcessoEleitoral("Eleicoes 2018"));
             processosEleitorais().get(0).criarEleicao("Presidente", cargos().get(0));
-            processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor)usuarios().get(1));
-            processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor)usuarios().get(2));
+            try {
+                processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Fulano", 10, (Eleitor) usuarios().get(1));
+                processosEleitorais().get(0).buscarEleicoes().get(0).adicionarCandidatura("Candidato Ciclano", 20, (Eleitor) usuarios().get(2));
+            } catch (SistemaEleicaoException ex) {
+                ex.printStackTrace();
+            }
             _processosEleitorais.add(new ProcessoEleitoral("Eleicoes 2020"));
             _processosEleitorais.get(0).iniciarEleicoes();
             _processosEleitorais.get(1).iniciarEleicoes();

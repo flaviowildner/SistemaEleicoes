@@ -1,18 +1,17 @@
 package View;
 
+import Controller.Database;
 import Model.Usuario;
 
 import javax.swing.*;
-import java.util.HashMap;
 
 public class View extends JFrame {
     protected Usuario usuario;
-    protected HashMap<String, Object> session;
     private Runnable resumeFunction;
     private View halted;
 
     public View(String title){
-        this.usuario = usuario;
+        usuario = Database.usuarioLogado();
         configView(title);
     }
 
@@ -42,14 +41,5 @@ public class View extends JFrame {
     public void halt (View v) {
         this.halted = v;
         v.setVisible(false);
-    }
-
-    public void useSession () {
-        if (this.session == null) this.session = new HashMap<>();
-    }
-
-    public void useSession (HashMap<String, Object> session) {
-        if (this.session == null) this.session = session;
-        else throw new IllegalStateException("Cannot set session for a view that already has a session");
     }
 }

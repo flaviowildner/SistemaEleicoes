@@ -1,7 +1,7 @@
-import Controller.Database;
+import View.TelaLogin;
 
 public class Main {
     public static void main(String[] args) {
-        Database.inicializar();
+        new TelaLogin().setVisible(true);
     }
 }

@@ -1,7 +1,7 @@
 package View;
 
-import Controller.Database;
-import Model.*;
+import Controller.ControladorEleicao;
+import Controller.ControladorProcessoEleitoral;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -14,27 +14,35 @@ public class TelaRegistrarVoto extends View {
     private JLabel nomeFantasiaLabel;
     private JLabel numeroLabel;
     private JPanel rootRegistrarVoto;
+    private ControladorEleicao controlador;
 
-    public TelaRegistrarVoto(ProcessoEleitoral processoEleitoral, Eleicao eleicao, Candidatura candidatura){
+    public TelaRegistrarVoto(ControladorEleicao refControlador){
         super( "Registrar Voto");
         add(rootRegistrarVoto);
 
-        nomeFantasiaLabel.setText(candidatura.obterNomeFantasia());
-        numeroLabel.setText(String.valueOf(candidatura.obterNumeroCandidatura()));
+        controlador = refControlador;
+
+        nomeFantasiaLabel.setText(controlador.candidatura().obterNomeFantasia());
+        numeroLabel.setText(String.valueOf(controlador.candidatura().obterNumeroCandidatura()));
 
         cancelarButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao( processoEleitoral, eleicao);
+                new TelaEleicao(controlador);
                 dispose();
             }
         });
+
         okButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Database.registrarVoto();
+                controlador.registrarVoto();
+                ControladorProcessoEleitoral c = new ControladorProcessoEleitoral();
+                c.setProcesso(controlador.processo());
+                new TelaListarEleicoes(c);
+                dispose();
             }
         });
     }

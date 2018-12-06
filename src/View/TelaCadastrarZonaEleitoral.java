@@ -1,13 +1,10 @@
 package View;
 
-import Controller.Database;
-import Model.Municipio;
+import Controller.ControladorUnidadesFederativas;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import View.TelaListarUnidadesFederativas.Operacao;
 
 public class TelaCadastrarZonaEleitoral extends View {
     private JButton OKButton;
@@ -16,17 +13,21 @@ public class TelaCadastrarZonaEleitoral extends View {
     private JTextField numeroText;
     private JTextField enderecoText;
     private JLabel title;
+    private ControladorUnidadesFederativas controlador;
 
-    public TelaCadastrarZonaEleitoral( Municipio uf, Operacao operacao) {
-        super( "Cadastrar Zona Eleitoral em " + uf.getNome());
+    public TelaCadastrarZonaEleitoral(ControladorUnidadesFederativas refControlador) {
+        super( "Cadastrar Zona Eleitoral em " + refControlador.ufSelecionada().getNome());
         add(rootCadastrarZonaEleitoral);
-        title.setText("Cadastrar Zona Eleitoral em " + uf.getNome());
+        title.setText("Cadastrar Zona Eleitoral em " + refControlador.ufSelecionada().getNome());
+
+        controlador = (refControlador == null) ? new ControladorUnidadesFederativas() : refControlador;
+
         OKButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Database.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText(), uf);
-                new TelaListarUnidadesFederativas( uf, operacao);
+                controlador.criarZonaEleitoral(Integer.parseInt(numeroText.getText()), enderecoText.getText());
+                new TelaListarUnidadesFederativas(controlador);
                 dispose();
             }
         });
@@ -34,7 +35,7 @@ public class TelaCadastrarZonaEleitoral extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas( uf, operacao);
+                new TelaListarUnidadesFederativas(controlador);
                 dispose();
             }
         });

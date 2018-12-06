@@ -1,8 +1,7 @@
 package View;
 
+import Controller.ControladorEleicao;
 import Model.Candidatura;
-import Model.Eleicao;
-import Model.ProcessoEleitoral;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,12 +13,15 @@ public class TelaResultado extends View {
     private JTable resultadoTable;
     private JButton voltarButton;
     private JButton inícioButton;
+    private ControladorEleicao controlador;
 
     private DefaultTableModel tmodel;
 
-    public TelaResultado( ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+    public TelaResultado(ControladorEleicao refControlador){
         super( "Resultado da Eleição");
         add(rootResultado);
+
+        controlador = refControlador;
 
         tmodel = (DefaultTableModel)this.resultadoTable.getModel();
         tmodel.addColumn("Nome");
@@ -27,7 +29,7 @@ public class TelaResultado extends View {
         tmodel.addColumn("Numero de votos");
 
         tmodel.setRowCount(0);
-        for (Candidatura candidatura : eleicao.buscarCandidaturas()) {
+        for (Candidatura candidatura : controlador.listarCandidaturas()) {
             tmodel.addRow(new Object[] {candidatura.obterNomeFantasia(), String.valueOf(candidatura.obterNumeroCandidatura()), String.valueOf(candidatura.numeroVotos())});
         }
 
@@ -35,7 +37,7 @@ public class TelaResultado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao( processoEleitoral, eleicao);
+                new TelaEleicao(controlador);
                 dispose();
             }
         });

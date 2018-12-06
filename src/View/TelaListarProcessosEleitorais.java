@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControladorProcessoEleitoral;
 import Controller.Database;
 import Model.*;
 
@@ -15,6 +16,7 @@ public class TelaListarProcessosEleitorais extends View{
     private JButton inicioButton;
     private JTable processosEleitoraisTable;
     private JButton novoProcessoEleitoralButton;
+    private ControladorProcessoEleitoral controlador;
 
     private DefaultTableModel tmodel;
 
@@ -22,18 +24,22 @@ public class TelaListarProcessosEleitorais extends View{
         super( "Listar Processos Eleitorais");
         add(rootPE);
 
+        controlador = new ControladorProcessoEleitoral();
+
         tmodel = (DefaultTableModel)this.processosEleitoraisTable.getModel();
         tmodel.addColumn("Sub");
 
         tmodel.setRowCount(0);
-        for (ProcessoEleitoral pe : Database.buscarProcessosEleitorais()) {
+        for (ProcessoEleitoral pe : controlador.listarProcessosEleitorais()) {
             tmodel.addRow(new Object[] {pe});
         }
 
         processosEleitoraisTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged (ListSelectionEvent e) {
-                Database.listarEleicoes((ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(),0));
+                controlador.setProcesso((ProcessoEleitoral)tmodel.getValueAt(processosEleitoraisTable.getSelectedRow(),0));
+                new TelaListarEleicoes(controlador);
+                dispose();
             }
         });
 
@@ -58,7 +64,7 @@ public class TelaListarProcessosEleitorais extends View{
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
-                    //new TelaCadastrarProcessoEleitoral(usuario);
+                    //new TelaCadastrarProcessoEleitoral();
                     //dispose();
                 }
             });

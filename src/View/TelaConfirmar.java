@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControladorConfirmacao;
 import Model.Usuario;
 
 import javax.swing.*;
@@ -10,15 +11,19 @@ public class TelaConfirmar extends View {
     private JPanel rootConfirmar;
     private JButton simButton;
     private JButton naoButton;
+    private ControladorConfirmacao controlador;
 
-    public TelaConfirmar() {
+    public TelaConfirmar(ControladorConfirmacao controlador) {
         super("Confirmar Acao");
         add(rootConfirmar);
+
+        this.controlador = controlador;
+
         simButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if (session != null) session.put("confirmation", true);
+                TelaConfirmar.this.controlador.confirmar();
                 dispose();
             }
         });
@@ -27,7 +32,7 @@ public class TelaConfirmar extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if (session != null) session.put("confirmation", false);
+                TelaConfirmar.this.controlador.cancelar();
                 dispose();
             }
         });

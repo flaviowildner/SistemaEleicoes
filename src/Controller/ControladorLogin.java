@@ -5,7 +5,7 @@ import Model.Usuario;
 
 public class ControladorLogin {
 
-    enum TipoUsuario {NAO_ENCONTRADO, ELEITOR, ADMINISTRADOR}
+    public enum TipoUsuario {NAO_ENCONTRADO, ELEITOR, ADMINISTRADOR}
 
     public TipoUsuario logar(String login, String senha){
         for(Usuario usuario : Database.usuarios()){

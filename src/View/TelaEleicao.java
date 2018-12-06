@@ -1,5 +1,7 @@
 package View;
 
+import Controller.ControladorEleicao;
+import Controller.ControladorProcessoEleitoral;
 import Model.*;
 
 import javax.swing.*;
@@ -17,20 +19,23 @@ public class TelaEleicao extends View{
     private JButton inicioButton;
     private JButton voltarButton;
     private JButton exibirResultadoButton;
+    private ControladorEleicao controlador;
 
     private DefaultTableModel tmodel;
 
-    public TelaEleicao( ProcessoEleitoral processoEleitoral, Eleicao eleicao){
+    public TelaEleicao(ControladorEleicao refControladorEleicao){
         super( "Listar Candidatos");
         add(rootEleicao);
 
-        nomeEleicao.setText(processoEleitoral.toString() + " - " + eleicao.toString());
+        controlador = refControladorEleicao;
+
+        nomeEleicao.setText(controlador.processo().toString() + " - " + controlador.eleicao().toString());
 
         tmodel = (DefaultTableModel)this.candidatosTable.getModel();
         tmodel.addColumn("Sub");
 
         tmodel.setRowCount(0);
-        for (Candidatura candidatura : eleicao.buscarCandidaturas()) {
+        for (Candidatura candidatura : controlador.listarCandidaturas()) {
             tmodel.addRow(new Object[] {candidatura});
         }
 
@@ -38,7 +43,9 @@ public class TelaEleicao extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarEleicoes(processoEleitoral);
+                ControladorProcessoEleitoral c = new ControladorProcessoEleitoral();
+                c.setProcesso(controlador.processo());
+                new TelaListarEleicoes(c);
                 dispose();
             }
         });
@@ -59,51 +66,41 @@ public class TelaEleicao extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaAdicionarCandidatura( processoEleitoral, eleicao);
+                new TelaAdicionarCandidatura(controlador);
+                dispose();
+            }
+        });
+
+        exibirResultadoButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                new TelaResultado(controlador);
                 dispose();
             }
         });
 
         if(usuario instanceof Eleitor){
+
             candidatosTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged (ListSelectionEvent e) {
-                    if(eleicao.eleitorJaVotou((Eleitor)usuario)){
-                        new TelaListarEleicoes(processoEleitoral);
+                    if(controlador.eleitorJaVotou((Eleitor)usuario)){
+                        ControladorProcessoEleitoral c = new ControladorProcessoEleitoral();
+                        c.setProcesso(controlador.processo());
+                        new TelaListarEleicoes(c);
                     }else{
-                        new TelaRegistrarVoto( processoEleitoral, eleicao, (Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
+                        controlador.setCandidatura((Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
+                        new TelaRegistrarVoto(controlador);
                     }
                     dispose();
                 }
             });
+
             adicionarCandidaturaButton.setVisible(false);
             adicionarCandidaturaButton.getParent().revalidate();
             exibirResultadoButton.setVisible(false);
             exibirResultadoButton.getParent().revalidate();
-        } else {
-            candidatosTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-                @Override
-                public void valueChanged (ListSelectionEvent e) {
-                    new TelaCandidatura(processoEleitoral, eleicao, (Candidatura) tmodel.getValueAt(candidatosTable.getSelectedRow(), 0));
-                    dispose();
-                }
-            });
-            adicionarCandidaturaButton.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                    new TelaAdicionarCandidatura(processoEleitoral, eleicao);
-                    dispose();
-                }
-            });
-            exibirResultadoButton.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                    new TelaResultado(processoEleitoral, eleicao);
-                    dispose();
-                }
-            });
         }
     }
 }

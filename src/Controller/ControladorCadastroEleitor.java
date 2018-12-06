@@ -9,13 +9,15 @@ import java.util.List;
 
 public class ControladorCadastroEleitor {
 
-    public static void criarEleitor(String login, String senha, String cpf, String nome, Secao secao){
-        Eleitor eleitor = new Eleitor(login, senha, cpf, nome, secao);
+    private Secao _secao;
+
+    public void criarEleitor(String login, String senha, String cpf, String nome){
+        Eleitor eleitor = new Eleitor(login, senha, cpf, nome, _secao);
         Database.usuarios().add(eleitor);
     }
 
 
-    public static List<Eleitor> buscarEleitor(){
+    public List<Eleitor> buscarEleitor(){
         List<Eleitor> retornoEleitor = new ArrayList<>();
         for(Usuario usuario : Database.usuarios()) {
             if(usuario instanceof Eleitor){
@@ -25,7 +27,11 @@ public class ControladorCadastroEleitor {
         return retornoEleitor;
     }
 
-    public static void transferirSecaoEleitor(Eleitor eleitor, Secao secao){
-        ((Eleitor)Database.usuarios().get(Database.usuarios().indexOf(eleitor))).alterarSecao(secao);
+    public void transferirSecaoEleitor(Eleitor eleitor){
+        ((Eleitor)Database.usuarios().get(Database.usuarios().indexOf(eleitor))).alterarSecao(_secao);
+    }
+
+    public void setSecao (Secao secao) {
+        _secao = secao;
     }
 }

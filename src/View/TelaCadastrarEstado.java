@@ -1,28 +1,30 @@
 package View;
 
-import Controller.Database;
+import Controller.ControladorUnidadesFederativas;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import View.TelaListarUnidadesFederativas.Operacao;
 
 public class TelaCadastrarEstado extends View {
     private JPanel rootCadastrarEstado;
     private JButton okButton;
     private JButton cancelarButton;
     private JTextField nomeText;
+    private ControladorUnidadesFederativas controlador;
 
-    public TelaCadastrarEstado(Operacao operacao) {
+    public TelaCadastrarEstado(ControladorUnidadesFederativas refControlador) {
         super("Cadastrar Estado");
         add(rootCadastrarEstado);
+
+        controlador = refControlador;
 
         okButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Database.criarEstado(nomeText.getText());
-                new TelaListarUnidadesFederativas(Database.brasil(), operacao);
+                controlador.criarEstado(nomeText.getText());
+                new TelaListarUnidadesFederativas(controlador);
                 dispose();
             }
         });
@@ -31,7 +33,7 @@ public class TelaCadastrarEstado extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaListarUnidadesFederativas(Database.brasil(), operacao);
+                new TelaListarUnidadesFederativas(controlador);
                 dispose();
             }
         });

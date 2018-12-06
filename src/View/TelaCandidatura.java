@@ -1,5 +1,7 @@
 package View;
 
+import Controller.ControladorEleicao;
+import Controller.ControladorProcessoEleitoral;
 import Model.Candidatura;
 import Model.Eleicao;
 import Model.ProcessoEleitoral;
@@ -15,21 +17,24 @@ public class TelaCandidatura extends View {
     private JLabel nomeFantasiaField;
     private JLabel numeroField;
     private JLabel qntVotosField;
+    private ControladorEleicao controlador;
 
-    public TelaCandidatura( ProcessoEleitoral processoEleitoral, Eleicao eleicao, Candidatura candidatura){
+    public TelaCandidatura(ControladorEleicao refControladorEleicao) {
         super( "Informações da Candidatura");
         add(rootCandidatura);
 
-        nomeFantasiaField.setText(candidatura.obterNomeFantasia());
-        numeroField.setText(String.valueOf(candidatura.obterNumeroCandidatura()));
-        qntVotosField.setText(String.valueOf(candidatura.numeroVotos()));
+        controlador = refControladorEleicao;
+
+        nomeFantasiaField.setText(controlador.candidatura().obterNomeFantasia());
+        numeroField.setText(String.valueOf(controlador.candidatura().obterNumeroCandidatura()));
+        qntVotosField.setText(String.valueOf(controlador.candidatura().numeroVotos()));
 
 
         voltarButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao( processoEleitoral, eleicao);
+                new TelaEleicao(controlador);
                 dispose();
             }
         });

@@ -45,14 +45,16 @@ public class TelaInicialAdministrador extends View{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Database.listarUnidadesFederativas();
+                new TelaListarUnidadesFederativas(null);
+                dispose();
             }
         });
         listarProcessosEleitoraisButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Database.listarProcessosEleitorais();
+                new TelaListarProcessosEleitorais();
+                dispose();
             }
         });
     }

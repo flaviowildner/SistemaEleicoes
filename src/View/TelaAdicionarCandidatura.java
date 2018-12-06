@@ -1,8 +1,6 @@
 package View;
 
-import Controller.ControladorCandidatura;
-import Model.Eleicao;
-import Model.ProcessoEleitoral;
+import Controller.ControladorEleicao;
 import Model.SistemaEleicaoException;
 
 import javax.swing.*;
@@ -17,24 +15,25 @@ public class TelaAdicionarCandidatura extends View {
     private JButton cancelarButton;
     private JPanel rootAdicionarCandidatura;
     private JLabel errorMessageLabel;
-    private ControladorCandidatura controlador;
+    private ControladorEleicao controlador;
 
-    public TelaAdicionarCandidatura(ProcessoEleitoral processoEleitoral, Eleicao eleicao){
-        super("Adicionar Candidatura - " + eleicao.toString());
+    public TelaAdicionarCandidatura(ControladorEleicao refControlador){
+        super("Adicionar Candidatura - " + refControlador.eleicao().toString());
         add(rootAdicionarCandidatura);
 
-        this.controlador = new ControladorCandidatura();
+        controlador = refControlador;
 
         okButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 try {
-                    controlador.adicionarCandidatura(eleicao, nomeFantasiaField.getText(), Integer.parseInt(numeroField.getText()), cpfField.getText());
+                    controlador.adicionarCandidatura(nomeFantasiaField.getText(), Integer.parseInt(numeroField.getText()), cpfField.getText());
+                    new TelaEleicao(controlador);
+                    dispose();
                 } catch (SistemaEleicaoException ex) {
                     setMessageError(ex.getMessage());
                 }
-                dispose();
             }
         });
 
@@ -43,7 +42,7 @@ public class TelaAdicionarCandidatura extends View {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                new TelaEleicao(processoEleitoral, eleicao);
+                new TelaEleicao(controlador);
                 dispose();
             }
         });
